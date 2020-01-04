@@ -25,7 +25,7 @@ body{
 } 
 .site-header .lable {
     float: left;
-    background: url(spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
+    background-image: url(spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
     display: block; /* Рисунок как блочный элемент */
     width: 220px; /* Ширина рисунка в пикселах */
     height: 48px; /* Высота рисунка */
@@ -44,7 +44,6 @@ body{
   padding: 28px 28px;
   font-weight: 700;
   /*border: 1px solid red;*/
-
 }
 .site-header a:visited{
   color: #FFFFFF;
@@ -66,3 +65,97 @@ body{
   background-color: #6db33f;
   margin: 0 -2px;  
 }
+.main-block {
+  width: 1000px;
+  margin: auto;
+  margin-top: 100px;
+}
+.main-block .text{
+  font-size: 17px;
+  line-height: 24px;
+  margin: 30px 0 60px;
+}
+body .main-block h1{
+  
+    line-height: 24px;
+    font-weight: 700;
+}
+body, h1, h2, h3, input, p {
+    margin: 0;
+    font-weight: 400;
+    font-family: varela round,sans-serif;
+    color: #34302d;
+}
+.main-block .frame{
+    border: 1px solid #ddd;
+    display: inline-block;
+    width: 21.8%;
+    height: 340px;
+    margin: 0 .5% 20px;
+    vertical-align: top;
+    text-align: center;
+    padding: 30px 5%;
+}
+.picture1{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 102px;
+    height: 90px;
+    background-position: 143px 837px;
+    margin-top: 23px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.picture2{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 135px;
+    height: 133px;
+    background-position: 518px 837px;
+    margin-top: 2px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.picture3{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 130px;
+    height: 105px;
+    background-position: 669px 1072px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.picture4{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 150px;
+    height: 111px;
+    background-position: 253px 955px;
+    margin-top: 13px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.picture5{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 111px;
+    height: 111px;
+    background-position: 519px 512px;
+    margin-top: 13px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.picture6{
+    display: block;
+    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
+    width: 145px;
+    height: 104px;
+    background-position: 361px 677px;
+    margin-top: 16px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+.prop-picture{
+  display: block;
+}
+
