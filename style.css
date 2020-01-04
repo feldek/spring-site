@@ -155,7 +155,30 @@ body, h1, h2, h3, input, p {
     margin: 30px auto;
     border: 1px solid red;
 }
-.prop-picture{
-  display: block;
+.frame-text{
+  border: 1px solid blue;
 }
+.mini-head{
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: Montserrat,sans-serif;
+}
+.frame-text p{
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    font-weight: 400;
+    font-family: varela round,sans-serif;
+    color: #34302d;
+
+}
+.prop-picture{
+  margin-bottom: 25px;
+  height: 137px;
+  vertical-align: middle;
+}
+
 
