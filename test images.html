@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Эффект перекатывания</title>
+  <style>
+   a.rollover {
+    background: url(spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
+    display: block; /* Рисунок как блочный элемент */
+    width: 160px; /* Ширина рисунка в пикселах */
+    height: 48px; /* Высота рисунка */
+   }
+   a.rollover:hover {
+    background-position: 0 -47px; /* Смещение фона */
+   }
+   body{
+       background: #696969;
+   } 
+  </style>
+ </head>
+  <body>
+  <p><a href="link.html" class="rollover"></a></p>
+ </body>
+</html>

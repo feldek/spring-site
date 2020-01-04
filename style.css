@@ -1,0 +1,68 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+.site-header {
+  border-top: 4px solid #6db33f;
+  background: #34302d;
+  text-align: right;
+  height: 70px;
+ /* border: 2px solid blue;*/
+  line-height: 70px;
+}
+.top-menu li{
+  display: inline-block;
+  text-align: right;
+  margin: 0 -2px;
+  /*border: 1px solid blue;*/
+}
+.top-menu{
+  width: 1000px;
+  margin: -1px auto;
+  /*border: 2px solid black;*/
+  white-space: nowrap;
+  overflow: hidden;
+} 
+.site-header .lable {
+    float: left;
+    background: url(spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
+    display: block; /* Рисунок как блочный элемент */
+    width: 220px; /* Ширина рисунка в пикселах */
+    height: 48px; /* Высота рисунка */
+   /* border: 2px solid black;*/
+    margin: 11px 0;
+}
+.lable:hover {
+    background-position: 0 -47px; /* Смещение фона */
+}
+.site-header a{
+  color: #eee;
+  text-transform: uppercase;
+  text-shadow: none;
+  font-size: 14px;
+  line-height:60px;
+  padding: 28px 28px;
+  font-weight: 700;
+  /*border: 1px solid red;*/
+
+}
+.site-header a:visited{
+  color: #FFFFFF;
+}
+.site-header a:active{
+  color: #FFFFFF;
+}
+.site-header a:hover{
+  background-color: #6db33f;
+}
+.project {
+  color: #eee;
+  text-transform: uppercase;
+  text-shadow: none;
+  font-size: 14px;
+  line-height:70px;
+/*  padding: 0px 1px;*/
+  font-weight: 700;
+  background-color: #6db33f;
+  margin: 0 -2px;  
+}
