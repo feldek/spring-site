@@ -1,4 +1,5 @@
 body{
+  background-color: #f1f1f1;
   padding: 0px;
   margin: 0px;
 }
@@ -13,12 +14,12 @@ body{
 .top-menu li{
   display: inline-block;
   text-align: right;
-  margin: 0 -2px;
+  margin-right: -5px;
   /*border: 1px solid blue;*/
 }
 .top-menu{
-  width: 1000px;
-  margin: -1px auto;
+  width: 1024px;
+  margin: 0px auto;
   /*border: 2px solid black;*/
   white-space: nowrap;
   overflow: hidden;
@@ -30,7 +31,7 @@ body{
     width: 220px; /* Ширина рисунка в пикселах */
     height: 48px; /* Высота рисунка */
    /* border: 2px solid black;*/
-    margin: 11px 0;
+    margin: 11px -21px 11px;
 }
 .lable:hover {
     background-position: 0 -47px; /* Смещение фона */
@@ -66,35 +67,27 @@ body{
   margin: 0 -2px;  
 }
 .main-block {
-  width: 1000px;
+  width: 1024px;
   margin: auto;
   margin-top: 100px;
 }
 .main-block .text{
-  font-size: 17px;
+  font-size: 16px;
   line-height: 24px;
   margin: 30px 0 60px;
+  color: #34302d;
 }
 body .main-block h1{
-  
+    font-size: 24px;
     line-height: 24px;
     font-weight: 700;
+    font-family: Montserrat,sans-serif;
 }
 body, h1, h2, h3, input, p {
     margin: 0;
     font-weight: 400;
     font-family: varela round,sans-serif;
     color: #34302d;
-}
-.main-block .frame{
-    border: 1px solid #ddd;
-    display: inline-block;
-    width: 21.8%;
-    height: 340px;
-    margin: 0 .5% 20px;
-    vertical-align: top;
-    text-align: center;
-    padding: 30px 5%;
 }
 .picture1{
     display: block;
@@ -104,7 +97,6 @@ body, h1, h2, h3, input, p {
     background-position: 143px 837px;
     margin-top: 23px;
     margin: 30px auto;
-    border: 1px solid red;
 }
 .picture2{
     display: block;
@@ -112,9 +104,7 @@ body, h1, h2, h3, input, p {
     width: 135px;
     height: 133px;
     background-position: 518px 837px;
-    margin-top: 2px;
-    margin: 30px auto;
-    border: 1px solid red;
+    margin: 0 auto 60px;
 }
 .picture3{
     display: block;
@@ -123,7 +113,6 @@ body, h1, h2, h3, input, p {
     height: 105px;
     background-position: 669px 1072px;
     margin: 30px auto;
-    border: 1px solid red;
 }
 .picture4{
     display: block;
@@ -133,7 +122,6 @@ body, h1, h2, h3, input, p {
     background-position: 253px 955px;
     margin-top: 13px;
     margin: 30px auto;
-    border: 1px solid red;
 }
 .picture5{
     display: block;
@@ -143,7 +131,6 @@ body, h1, h2, h3, input, p {
     background-position: 519px 512px;
     margin-top: 13px;
     margin: 30px auto;
-    border: 1px solid red;
 }
 .picture6{
     display: block;
@@ -153,10 +140,13 @@ body, h1, h2, h3, input, p {
     background-position: 361px 677px;
     margin-top: 16px;
     margin: 30px auto;
-    border: 1px solid red;
+
+}
+.picture1,.picture2,.picture3,.picture4,.picture5,.picture6{
+   /* border: 1px solid red;*/
 }
 .frame-text{
-  border: 1px solid blue;
+ /* border: 1px solid blue;*/
 }
 .mini-head{
   font-size: 16px;
@@ -165,6 +155,7 @@ body, h1, h2, h3, input, p {
   text-transform: uppercase;
   font-weight: 700;
   font-family: Montserrat,sans-serif;
+  color: #34302d;
 }
 .frame-text p{
     font-size: 14px;
@@ -172,7 +163,7 @@ body, h1, h2, h3, input, p {
     margin: 0;
     font-weight: 400;
     font-family: varela round,sans-serif;
-    color: #34302d;
+    color: #34302d;  
 
 }
 .prop-picture{
@@ -180,5 +171,24 @@ body, h1, h2, h3, input, p {
   height: 137px;
   vertical-align: middle;
 }
+.lupa a::before{
+  content: "\f002";
+}
+.block a{
+    text-decoration: none;
+    border: 1px solid #ddd;
+    display: inline-block;
+    width: 21.8%;
+    height: 340px;
+    margin: 0 .5% 20px;
+    vertical-align: top;
+    text-align: center;
+    padding: 30px 5%;
+}
+/*.block a :hover{
+ border: 1px solid #34302d;
+}*/
 
-
+/*.block a .frame{
+  border: 1px solid red;
+} */
