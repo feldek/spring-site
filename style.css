@@ -185,10 +185,19 @@ body, h1, h2, h3, input, p {
     text-align: center;
     padding: 30px 5%;
 }
-/*.block a :hover{
- border: 1px solid #34302d;
-}*/
-
-/*.block a .frame{
-  border: 1px solid red;
-} */
+.lable {
+  font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    margin-top: 0;
+}
