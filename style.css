@@ -1,48 +1,54 @@
-body{
+body{  
   background-color: #f1f1f1;
   padding: 0px;
   margin: 0px;
 }
-.site-header {
+.body1 {  
+  margin: auto;
   border-top: 4px solid #6db33f;
   background: #34302d;
-  text-align: right;
+  height: 70px;     
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1024px;  
+  /*border: 2px solid blue;*/
+  margin: auto;
+}
+.top-menu {
+  display: flex;  
+  max-width: 100%;
   height: 70px;
- /* border: 2px solid blue;*/
-  line-height: 70px;
-}
-.top-menu li{
-  display: inline-block;
-  text-align: right;
-  margin-right: -5px;
-  /*border: 1px solid blue;*/
-}
-.top-menu{
-  width: 1024px;
-  margin: 0px auto;
-  /*border: 2px solid black;*/
-  white-space: nowrap;
-  overflow: hidden;
+
 } 
+.top-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 .site-header .lable {
     float: left;
-    background-image: url(spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
+    background-image: url(libs/spring-logo-3b6f842fa77c3bea3bac17dbce36a101.png); /* Путь к файлу с исходным  рисунком */
     display: block; /* Рисунок как блочный элемент */
     width: 220px; /* Ширина рисунка в пикселах */
     height: 48px; /* Высота рисунка */
    /* border: 2px solid black;*/
-    margin: 11px -21px 11px;
+    margin: 11px 0px 11px;
 }
 .lable:hover {
     background-position: 0 -47px; /* Смещение фона */
 }
 .site-header a{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  text-decoration: none;
   color: #eee;
   text-transform: uppercase;
   text-shadow: none;
   font-size: 14px;
-  line-height:60px;
-  padding: 28px 28px;
+  padding: 0 20px;*/
   font-weight: 700;
   /*border: 1px solid red;*/
 }
@@ -52,24 +58,21 @@ body{
 .site-header a:active{
   color: #FFFFFF;
 }
-.site-header a:hover{
+.site-header a:hover, .lupa:hover, input{
   background-color: #6db33f;
 }
-.project {
+.text-menu2 {
+  align-items: stretch;
   color: #eee;
-  text-transform: uppercase;
-  text-shadow: none;
   font-size: 14px;
-  line-height:70px;
-/*  padding: 0px 1px;*/
+  padding: 0px 1px;
   font-weight: 700;
   background-color: #6db33f;
-  margin: 0 -2px;  
 }
 .main-block {
-  width: 1024px;
-  margin: auto;
-  margin-top: 100px;
+  max-width: 1024px;
+  margin: 80px auto;
+  /*border: 1px solid red;*/
 }
 .main-block .text{
   font-size: 16px;
@@ -90,8 +93,6 @@ body, h1, h2, h3, input, p {
     color: #34302d;
 }
 .picture1{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 102px;
     height: 90px;
     background-position: 143px 837px;
@@ -99,24 +100,18 @@ body, h1, h2, h3, input, p {
     margin: 30px auto;
 }
 .picture2{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 135px;
     height: 133px;
     background-position: 518px 837px;
     margin: 0 auto 60px;
 }
 .picture3{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 130px;
     height: 105px;
     background-position: 669px 1072px;
     margin: 30px auto;
 }
 .picture4{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 150px;
     height: 111px;
     background-position: 253px 955px;
@@ -124,8 +119,6 @@ body, h1, h2, h3, input, p {
     margin: 30px auto;
 }
 .picture5{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 111px;
     height: 111px;
     background-position: 519px 512px;
@@ -133,17 +126,15 @@ body, h1, h2, h3, input, p {
     margin: 30px auto;
 }
 .picture6{
-    display: block;
-    background-image: url(iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); /* Путь к файлу с исходным  рисунком */
     width: 145px;
     height: 104px;
     background-position: 361px 677px;
     margin-top: 16px;
     margin: 30px auto;
-
 }
 .picture1,.picture2,.picture3,.picture4,.picture5,.picture6{
-   /* border: 1px solid red;*/
+  display: block;
+  background-image: url(libs/iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); 
 }
 .frame-text{
  /* border: 1px solid blue;*/
@@ -171,9 +162,26 @@ body, h1, h2, h3, input, p {
   height: 137px;
   vertical-align: middle;
 }
-.lupa a::before{
-  content: "\f002";
+.lupa{
+  background: #34302d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 35px 28px;
+ /* padding: 35px 0px;*/
 }
+.lupa::before{
+  position: absolute;
+  display: block;
+  color: #eee;
+  font-size: 24px;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: '\f002 ';
+  z-index: 2;   
+}
+
 .block a{
     text-decoration: none;
     border: 1px solid #ddd;
@@ -186,7 +194,7 @@ body, h1, h2, h3, input, p {
     padding: 30px 5%;
 }
 .lable {
-  font-family: FontAwesome;
+    font-family: FontAwesome, 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
     font-weight: 400;
     font-style: normal;
     text-decoration: inherit;
@@ -201,3 +209,238 @@ body, h1, h2, h3, input, p {
     background-repeat: repeat;
     margin-top: 0;
 }
+.block a:hover{
+  border: 1px solid black;
+}
+.top-menu .text-menu1{
+  display: none;
+}
+form {
+  position: relative;
+  top: 0px;
+  max-width: 60px;
+  margin: auto;
+  height: 70px;
+}
+input {
+  height: 70px;
+  width: 0px;
+  padding: 0 56px 0 0px;
+  background: #34302d;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: .4s cubic-bezier(0, 0.8, 0, 1);
+  position: absolute;
+  /*top: 70px;*/
+  right: 0;
+  z-index: 1;
+  border: 1px solid black;
+  cursor: pointer;
+}
+input:focus {
+  display: flex;
+  position: absolute;
+  top: 70px;
+  width: 1024px;
+  z-index: 2;
+  border-bottom: 2px solid #F9F0DA;
+  padding:  0;
+  cursor: pointer;
+  background: red;
+  border: none;
+  box-shadow: none;
+  color: #34302d;
+  font-size: 21px;  
+  /*border: 1px solid blue;*/
+}
+/*button {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background: #683B4D;
+  border: none;
+  height: 80px;
+  width: 56px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+button:before {
+  display: none;
+  color: #eee;
+  font-size: 24px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: '\f002';
+}*/
+
+
+@media (max-width: 1000px){
+
+.top-menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  flex-shrink: 0;
+  width: 300px; 
+}
+.top-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+  height: 15px;
+  padding: 15px;
+  margin: 0px;
+  background-color: #34302d;
+  border-bottom: 1px solid #474441;
+  border-top: 1px solid #474441;  
+}
+.text-menu1:after, .text-menu2:after, .text-menu3:after, 
+.text-menu4:after, .text-menu5:after{
+  content: "\f054";
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  font-size: 15px;
+  color: #9d9b99;
+}
+.site-header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+.body1{
+  position: relative;
+  height: 50px;
+}
+.site-header .lable{
+  display: none;
+  margin: auto;
+}
+.top-menu .text-menu1{
+  display: flex;
+}
+.top-menu .lupa {
+  order: 0;
+  border: 1px solid black;
+  height: 20px;
+}
+.text-menu5,.text-menu1, .text-menu2,.text-menu3,.text-menu4 {
+  order: 1;
+}
+ .navigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 320px;
+  height: 50px;
+  width: 50px;
+  border: 1px solid red;
+  padding: 0;
+  margin: 0;
+}
+ .navigation::after{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: "\f0c9";
+  background-color: #262321;
+  color: #f1f1f1; 
+  font-size: 24px;  
+  width: 50px;
+  height: 50px;
+}
+form {
+  position: relative;
+  width: 300px;
+  margin: auto;
+  height: 25px;
+  border: 1px solid red;
+}
+input {
+  height: 25px;
+  width: 0;
+  padding: 0 40px 0 0px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  background: transparent;
+  transition: .4s cubic-bezier(0, 0.8, 0, 1);
+  position: absolute;
+  top: 0px;
+  right: 0;
+  z-index: 2;
+  border: 1px solid black;
+  cursor: pointer;
+}
+input:focus {
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  z-index: 1;
+  border-bottom: 2px solid #F9F0DA;
+  padding:  0;
+  cursor: pointer;
+  background: white;
+  border: none;
+  box-shadow: none;
+  color: #34302d;
+  font-size: 21px;  
+  /*border: 1px solid blue;*/
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  /*background: #683B4D;*/
+  border: none;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+button:before {
+  /*display: none;*/
+  color: #eee;
+  font-size: 24px;
+  /*padding: 6px 10px;*/
+  /*cursor: pointer;*/
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: '\f002';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
