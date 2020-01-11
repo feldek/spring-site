@@ -19,11 +19,7 @@ body{
 .top-menu {
   display: flex;  
   max-width: 100%;
-  height: 70px;
-
-} 
-.top-menu{
-  display: flex;
+  /*height: 70px;*/
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -58,7 +54,7 @@ body{
 .site-header a:active{
   color: #FFFFFF;
 }
-.site-header a:hover, .lupa:hover, input{
+.site-header a:hover, .lupa:hover, .image:hover{
   background-color: #6db33f;
 }
 .text-menu2 {
@@ -136,8 +132,8 @@ body, h1, h2, h3, input, p {
   display: block;
   background-image: url(libs/iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); 
 }
-.frame-text{
- /* border: 1px solid blue;*/
+.text-menu5{
+  margin-right: 56px;
 }
 .mini-head{
   font-size: 16px;
@@ -162,16 +158,20 @@ body, h1, h2, h3, input, p {
   height: 137px;
   vertical-align: middle;
 }
-.lupa{
+.lupa, .image{
   background: #34302d;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
-  padding: 35px 28px;
- /* padding: 35px 0px;*/
+  width: 56px;
+  height: 70px;
+  padding: 0;
+  position: relative;
+  right: 0px;
+  z-index: 2;
 }
-.lupa::before{
+.lupa::before, .image::before{
   position: absolute;
   display: block;
   color: #eee;
@@ -215,11 +215,27 @@ body, h1, h2, h3, input, p {
 .top-menu .text-menu1{
   display: none;
 }
+.container-search{
+  display: flex;
+  justify-content: center;
+  /*border: 1px solid red;*/
+}
+.under-header{
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  /*border: 1px solid blue;*/
+  width: 1024px; 
+}
+.image{
+  cursor: pointer;
+  position: absolute;
+  top: -70px;
+}
 form {
   position: relative;
   top: 0px;
   max-width: 60px;
-  margin: auto;
   height: 70px;
 }
 input {
@@ -235,121 +251,210 @@ input {
   /*top: 70px;*/
   right: 0;
   z-index: 1;
-  border: 1px solid black;
+ /* border: 1px solid black;*/
   cursor: pointer;
 }
 input:focus {
   display: flex;
-  position: absolute;
-  top: 70px;
+  justify-content: flex-start;
+  /*position: absolute;*/
   width: 1024px;
   z-index: 2;
-  border-bottom: 2px solid #F9F0DA;
-  padding:  0;
+ /* padding:  0;*/
   cursor: pointer;
-  background: red;
+  background: white;
   border: none;
   box-shadow: none;
   color: #34302d;
-  font-size: 21px;  
+  font-size: 21px;
   /*border: 1px solid blue;*/
 }
-/*button {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  background: #683B4D;
-  border: none;
-  height: 80px;
-  width: 56px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
+.block a:nth-child(2) .mini-head{
+  margin-top: 55px; 
 }
-button:before {
-  display: none;
-  color: #eee;
-  font-size: 24px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
-  font-weight: 900;
-  content: '\f002';
-}*/
+.lupa {
+  display: none; /*пока не разобрался как ее вызвать при фокусе на input*/
+}
 
 
 @media (max-width: 1000px){
-
+.all-menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #34302d;
+  width: 100%;
+  height: 50px;
+  padding: auto;
+ /*border: 2px solid red;*/
+  position: relative;
+  top: -50px;
+}
+.body1{
+  width: 100%;
+  height: 1340px;
+  position: absolute;
+  display: flex;
+  order: 2;
+  border-top: none;
+  background: none;
+ /* border: 1px solid blue;*/
+}
+.site-header .lable{
+  display: block;
+  background-image: url(libs/iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png); 
+  order: 2;
+  width: 204px;
+  height: 60px;
+  background-position: 904px 302px;
+  margin-top: -13px;  
+}
+.site-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+ /* border: 1px solid green;*/
+  height: inherit;
+}
 .top-menu{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  text-align: left;
-  flex-shrink: 0;
-  width: 300px; 
+  position: relative;
+  top: 50px;
+  background: #34302d;
+  /*border: 1px solid yellow; */
+  height: none;
+  order: 1;
 }
-.top-menu a {
+.top-menu a:hover{
+  background: #34302d;
+}
+.text-menu2{
+  background: #34302d;
+}
+.top-menu .text-menu1{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 240px;
-  height: 15px;
-  padding: 15px;
-  margin: 0px;
-  background-color: #34302d;
-  border-bottom: 1px solid #474441;
-  border-top: 1px solid #474441;  
+  background: #262321;
 }
-.text-menu1:after, .text-menu2:after, .text-menu3:after, 
-.text-menu4:after, .text-menu5:after{
+.top-menu a{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 260px;
+  height: 50px;
+  padding: 0 20px;
+  margin: 0;  
+  border-top: 1px solid #474441;
+}
+.top-menu a:last-child{
+  border-bottom: 1px solid #474441;
+}
+.container-search{
+  display: flex;
+  justify-content: flex-start;
+  order: 1;
+  width: 100%
+}
+.under-header{
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  margin: 0;
+}
+.top-menu a:after{
   content: "\f054";
   font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
   font-weight: 900;
   font-size: 15px;
   color: #9d9b99;
 }
-.site-header{
-  width: 100%;
+form {
+  position: relative;
+  align-items: center;
+  max-width: 100%;
+  height: 30px;
+}
+input {
+  height: 30px;
+  width: 280px;
+  padding: 10px 30px 10px 10px;
+  background: #34302d;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: #555;
+  transition: .4s cubic-bezier(0, 0.8, 0, 1);
+  position: static;
+  z-index: 1;
+ /* border: 1px solid black;*/
+  cursor: default;
+  font: 400 12px Arial;
+  color: #f1f1f1;
+}
+input:focus, input:active {
+  display: flex;
+  height: 30px;
+  width: 280px;
+  padding: 10px 10px 10px 10px;
+  background: #555;
+  position: static;
+  z-index: 1;
+  /*border: 1px solid black;*/
+  cursor: default;
+  font: 400 12px Arial;
+  color: #f1f1f1;
+}
+
+.lupa{
+  background: #555;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  align-items: center;
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  /*border: 1px solid yellow;*/
 }
-.body1{
-  position: relative;
-  height: 50px;
+.lupa::before{
+  position: absolute; 
+  display: block;
+  color: #eee;
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: '\f002 ';
+  z-index: 2;   
 }
-.site-header .lable{
+.lupa:hover{
+  background: transparent;
+}
+.image{
   display: none;
-  margin: auto;
 }
-.top-menu .text-menu1{
-  display: flex;
-}
-.top-menu .lupa {
-  order: 0;
-  border: 1px solid black;
-  height: 20px;
-}
-.text-menu5,.text-menu1, .text-menu2,.text-menu3,.text-menu4 {
-  order: 1;
-}
- .navigation{
+.navigation, .navigation1{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 0px;
-  left: 320px;
+  left: 300px;
   height: 50px;
   width: 50px;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   padding: 0;
   margin: 0;
+  z-index: 5;
 }
- .navigation::after{
+.navigation::after, .navigation1::after{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -363,67 +468,64 @@ button:before {
   width: 50px;
   height: 50px;
 }
-form {
-  position: relative;
-  width: 300px;
-  margin: auto;
-  height: 25px;
-  border: 1px solid red;
+.navigation{
+  left: 0;
+  background: red;
+  z-index: 0;
 }
-input {
-  height: 25px;
-  width: 0;
-  padding: 0 40px 0 0px;
-  border: none;
-  border-bottom: 2px solid transparent;
-  outline: none;
-  background: transparent;
-  transition: .4s cubic-bezier(0, 0.8, 0, 1);
-  position: absolute;
-  top: 0px;
-  right: 0;
-  z-index: 2;
-  border: 1px solid black;
-  cursor: pointer;
+.all-menu:target{
+  display: none;
 }
-input:focus {
-  position: absolute;
-  top: 200px;
+.top{
+  background: #34302d;
   width: 100%;
-  z-index: 1;
-  border-bottom: 2px solid #F9F0DA;
-  padding:  0;
-  cursor: pointer;
-  background: white;
-  border: none;
-  box-shadow: none;
-  color: #34302d;
-  font-size: 21px;  
-  /*border: 1px solid blue;*/
+  height: 50px;
+  padding: auto;
+ /*border: 2px solid red;*/
 }
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  /*background: #683B4D;*/
-  border: none;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
+.block a{
+  padding: 30px 5%;
+  width: 34%;
+  height: 290px;
+  margin: 0 2.5% 20px;
 }
-button:before {
-  /*display: none;*/
-  color: #eee;
-  font-size: 24px;
-  /*padding: 6px 10px;*/
-  /*cursor: pointer;*/
-  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
-  font-weight: 900;
-  content: '\f002';
+.main-block{
+  margin: 30px;
 }
+header{
+  height: 50px;
+}
+}
+
+@media (max-width: 600px){
+
+
+.block a{
+  padding: 10px 5%;
+  width: 80%;
+  height: 270px;
+  margin: 0 2.5% 20px;
+}
+
+
+.main-block{
+  margin: 30px;
+}
+.main-block .text{
+  margin: 15px auto;
+}
+.block a div{
+  margin-bottom: 0
+}
+.block a:nth-child(2) .mini-head{
+  margin-top: 30px;
+}
+
+
+}
+
+
+
 
 
 

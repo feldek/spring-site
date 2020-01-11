@@ -8,24 +8,32 @@
   </head>
   <body>
     <header>
-      <div class="body1">
-      <a class="navigation" href=""></a>        
-          <div class="site-header">
-              <div class="lable"></div>
-              <div class="top-menu">
-                <a class="text-menu1" href="">Home</a>       
-                <a class="text-menu2" href="">PROJECTS</a>
-                <a class="text-menu3" href="">GUIDES</a>
-                <a class="text-menu4" href="">BLOG</a>
-                <a class="text-menu5" href="">TRANING & CERTIFICATION</a>
-                <div>  
-                  <form action="" method="get">
-                    <input  name="s" placeholder="Search for documentation, guides and posts..." type="search">
-                    <button class="lupa" type="submit"></button>
-                   </form></div>
-              </div>
-          </div>      
-        </div> 
+      <div class="top"></div>
+      <a class="navigation" href="#show1"></a>
+      <div class="all-menu" id="show">
+      <a class="navigation1" href="#show"></a>  
+        <div class="body1">                
+            <div class="site-header">
+                <div class="lable"></div>
+                <div class="top-menu">
+                  <a class="text-menu1" href="">Home</a>       
+                  <a class="text-menu2" href="">PROJECTS</a>
+                  <a class="text-menu3" href="">GUIDES</a>
+                  <a class="text-menu4" href="">BLOG</a>
+                  <a class="text-menu5" href="">TRANING & CERTIFICATION</a>
+                </div>
+            </div>      
+          </div>
+        <div class="container-search">
+          <div class="under-header">    
+            <form action="" method="get">
+              <label class="image" for="search"></label>
+              <input  name="s" placeholder="Search for documentation, guides and posts..." type="search" id="search">
+              <button class="lupa" type="submit"></button>
+            </form>
+          </div>  
+        </div>
+       </div>
     </header>
 
 
@@ -50,7 +58,7 @@
                   <div class="picture2"></div>
                 </div>
                 <div class="frame-text">
-                      <div class="mini-head" style="margin-top: 55px;">Spring framework</div>
+                      <div class="mini-head">Spring framework</div>
                       <p>Provides core support for dependency injection, transaction management, web apps, data access, messaging and more.</p>
                 </div>   
             </a>       
