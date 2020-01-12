@@ -1,4 +1,4 @@
-@media (min-width: 1000px){
+@media (min-width: 1001px){
 body{  
   background-color: #f1f1f1;
   padding: 0px;
@@ -567,7 +567,7 @@ input:focus {
 
 
 
-  
+
 .all-menu{
   display: flex;
   flex-direction: column;
