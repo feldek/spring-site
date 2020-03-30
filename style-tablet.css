@@ -1,4 +1,6 @@
-@media (min-width: 600px) and (max-width: 1000px){
+@media (min-width: 600px) and (max-width: 1000px){ /*поскольку я люто проебался(не поставив сразу вью порт для 1к+)
+                                          писав все в 1 файле, то пришлось весь код переносить и для планшеток и для мобилок друг на друга
+                                          налаживать, крч каша в стилях та еще когда одно перекрывает другое*/ 
 
 body{  
   background-color: #f1f1f1;
@@ -21,7 +23,6 @@ body{
 .top-menu {
   display: flex;  
   max-width: 100%;
-  /*height: 70px;*/
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -46,7 +47,7 @@ body{
   text-transform: uppercase;
   text-shadow: none;
   font-size: 14px;
-  padding: 0 20px;*/
+  padding: 0 20px;
   font-weight: 700;
   /*border: 1px solid red;*/
 }
@@ -160,29 +161,7 @@ body, h1, h2, h3, input, p {
   height: 137px;
   vertical-align: middle;
 }
-.lupa, .image{
-  background: #34302d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  width: 56px;
-  height: 70px;
-  padding: 0;
-  position: relative;
-  right: 0px;
-  z-index: 2;
-}
-.lupa::before, .image::before{
-  position: absolute;
-  display: block;
-  color: #eee;
-  font-size: 24px;
-  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
-  font-weight: 900;
-  content: '\f002 ';
-  z-index: 2;   
-}
+
 
 .block a{
     text-decoration: none;
@@ -202,14 +181,13 @@ body, h1, h2, h3, input, p {
     text-decoration: inherit;
     -webkit-font-smoothing: antialiased;
     display: inline;
-    width: auto;
-    height: auto;
+    position: absolute;
+    right: 0;
     line-height: normal;
     vertical-align: baseline;
     background-image: none;
     background-position: 0 0;
     background-repeat: repeat;
-    margin-top: 0;
 }
 .block a:hover{
   border: 1px solid black;
@@ -229,54 +207,11 @@ body, h1, h2, h3, input, p {
   /*border: 1px solid blue;*/
   width: 1024px; 
 }
-.image{
-  cursor: pointer;
-  position: absolute;
-  top: -70px;
-}
-form {
-  position: relative;
-  top: 0px;
-  max-width: 60px;
-  height: 70px;
-}
-input {
-  height: 70px;
-  width: 0px;
-  padding: 0 56px 0 0px;
-  background: #34302d;
-  border: none;
-  outline: none;
-  background: transparent;
-  transition: .4s cubic-bezier(0, 0.8, 0, 1);
-  position: absolute;
-  /*top: 70px;*/
-  right: 0;
-  z-index: 1;
- /* border: 1px solid black;*/
-  cursor: pointer;
-}
-input:focus {
-  display: flex;
-  justify-content: flex-start;
-  /*position: absolute;*/
-  width: 1024px;
-  z-index: 2;
- /* padding:  0;*/
-  cursor: pointer;
-  background: white;
-  border: none;
-  box-shadow: none;
-  color: #34302d;
-  font-size: 21px;
-  /*border: 1px solid blue;*/
-}
+
 .block a:nth-child(2) .mini-head{
   margin-top: 55px; 
 }
-.lupa {
-  display: none; /*пока не разобрался как ее вызвать при фокусе на input*/
-}
+
 
 
 
@@ -387,10 +322,11 @@ form {
   max-width: 100%;
   height: 30px;
 }
-input {
-  height: 30px;
-  width: 280px;
+.place_for_search {
+  /* height: 30px; */
+  width: 230px;
   padding: 10px 30px 10px 10px;
+  border-radius: 5px;
   background: #34302d;
   margin: 0;
   border: none;
@@ -404,50 +340,53 @@ input {
   font: 400 12px Arial;
   color: #f1f1f1;
 }
-input:focus, input:active {
-  display: flex;
-  height: 30px;
-  width: 280px;
-  padding: 10px 10px 10px 10px;
-  background: #555;
-  position: static;
-  z-index: 1;
-  /*border: 1px solid black;*/
-  cursor: default;
-  font: 400 12px Arial;
-  color: #f1f1f1;
-}
 
-.lupa{
+
+.image_for_search{
   background: #555;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  /* border: none; */
+  border-radius: 5px;
   width: 30px;
   height: 30px;
-  padding: 0;
+  /* padding: 0; */
   position: absolute;
-  top: 0;
-  z-index: 2;
+  right: 0;
+  top: 2px;
+  /* z-index: 2; */
   /*border: 1px solid yellow;*/
 }
-.lupa::before{
-  position: absolute; 
-  display: block;
+.image_for_search::before{
   color: #eee;
   font-size: 18px;
   font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
   font-weight: 900;
   content: '\f002 ';
-  z-index: 2;   
+  /* z-index: 2;    */
 }
-.lupa:hover{
-  background: transparent;
-}
-.image{
+.button_for_search, .button_for_turn_back{
   display: none;
 }
+.image_for_search{
+  position: absolute;
+
+}
+.image_for_cansel::before{
+  display: none;
+  position: absolute; 
+  top: 5px;
+  right: 50px;
+  /* display: block; */
+  color: #eee;
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  content: 'X';
+  z-index: 3;
+}
+
 .navigation, .navigation1{
   display: flex;
   flex-direction: row;
@@ -480,7 +419,6 @@ input:focus, input:active {
 .navigation{
   left: 0;
   background: red;
-  z-index: 0;
 }
 .all-menu:target{
   display: none;
@@ -504,6 +442,15 @@ input:focus, input:active {
 header{
   height: 50px;
 }
+.top-menu, .under-header, .navigation1{
+  display: none;
+}
+.top-menu.open, .under-header.open, .navigation1.open{
+  display: flex;  
+}
+.navigation.open{
+  display: flex;
+  z-index: 0;
 }
 
 
@@ -512,21 +459,4 @@ header{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
