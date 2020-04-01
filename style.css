@@ -57,8 +57,7 @@
   }
   .site-header a:hover,
   .button_for_search:hover,
-  .image_for_search:hover 
- {
+  .image_for_search:hover {
     background-color: #6db33f;
   }
   .text-menu2 {
@@ -137,7 +136,12 @@
     margin: 30px auto;
   }
   /* prettier ignore */
-  .picture1, .picture2, .picture3, .picture4, .picture5, .picture6 {
+  .picture1,
+  .picture2,
+  .picture3,
+  .picture4,
+  .picture5,
+  .picture6 {
     display: block;
     background-image: url(libs/iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png);
   }
@@ -166,8 +170,7 @@
     height: 137px;
     vertical-align: middle;
   }
- .image_for_search
-   {
+  .image_for_search {
     background: #34302d;
     display: flex;
     justify-content: center;
@@ -190,7 +193,6 @@
     content: "\f002 ";
     z-index: 2;
   }
-
 
   .block a {
     text-decoration: none;
@@ -248,54 +250,39 @@
   .place_for_search {
     height: 70px;
     padding: 0 56px 0 0px;
-    position: absolute;    
+    position: absolute;
     right: 56px;
   }
-  .place_for_search{
+  .place_for_search {
     padding-left: 50px;
     display: flex;
     justify-content: flex-start;
     width: 862px;
     cursor: pointer;
     background: white;
-    border: none;    
+    border: none;
     font-size: 21px;
     border-radius: 50px;
   }
-  .place_for_search:focus{
-   border: 0px solid white;
-   border: none;
+  .place_for_search:focus {
+    outline:none;
   }
-  .image_for_cansel{
-    display: flex;    
-    
+  .image_for_cansel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 50px;
+    background: white;
+    width: 56px;
+    height: 70px;
+    cursor: pointer;
   }
- 
-  .button_for_turn_back,  .button_for_search{
+  .button_for_turn_back,
+  .button_for_search {
     display: none;
   }
-
-  .image_for_cansel::before {
-   border-radius: 50px;
-   background: white;
-   width: 56px;
-   height: 70px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: none;
-   color: #34302d;
-   font-size: 24px;
-   font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
-   font-weight: 900;
-   content: "X";
-   z-index: 2;
- } 
-
   .block a:nth-child(2) .mini-head {
     margin-top: 55px;
   }
-
-} 
-
-
+}

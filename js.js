@@ -1,27 +1,11 @@
-let top_menu = document.querySelector(".top-menu");
-let open_button_top_menu = document.querySelector(".navigation");
-let close_button_top_menu = document.querySelector(".navigation1");
-let icon_label = document.querySelector(".under-header");
 function openMenu() {
-  top_menu.classList.toggle("open");
-  open_button_top_menu.classList.toggle("open");
-  close_button_top_menu.classList.toggle("open");
-  icon_label.classList.toggle("open");
+  document.querySelector(".top-menu").classList.toggle("open");
+  document.querySelector(".navigation").classList.toggle("open");
+  document.querySelector(".navigation1").classList.toggle("open");
+  document.querySelector(".under-header").classList.toggle("open");
 }
-open_button_top_menu.onclick = openMenu;
-close_button_top_menu.onclick = openMenu;
-
-//full height of document
-let scrollHeight = Math.max(
-  document.body.scrollHeight,
-  document.documentElement.scrollHeight,
-  document.body.offsetHeight,
-  document.documentElement.offsetHeight,
-  document.body.clientHeight,
-  document.documentElement.clientHeight
-);
-let top_menu1 = document.querySelector(".top-menu");
-top_menu1.style = `height : ${scrollHeight + 50}px`;
+document.querySelector(".navigation").onclick = openMenu;
+document.querySelector(".navigation1").onclick = openMenu;
 
 let itemOfPicture = document.querySelectorAll(".main-block .block > a");
 let arrOfItem = [];
@@ -56,49 +40,56 @@ addItemOnPage(arrOfItem);
 
 
 
-let locale_HTML = document.body.innerHTML;
-function findOnPage(name, status) {  
-  let input = document.getElementById(name).value;
-  // name = numer.replace(/^\s+/g,'');
-  // name = numer.replace(/[ ]{1,}/g,' ');
-  if (input.length < 3 && status == true) {
-    alert("Need to enter more 3 char");
-    function FindOnPageBack() {
-      document.body.innerHTML = locale_HTML;
-    }
-  } else{
-    if (status) {
-      FindOnPageBack(), findOnPageGo();
-    }
-    if (!status) FindOnPageBack();
-  }
+
+// full height of document
+let scrollHeight = Math.max(
+  document.body.scrollHeight,
+  document.documentElement.scrollHeight,
+  document.body.offsetHeight,
+  document.documentElement.offsetHeight,
+  document.body.clientHeight,
+  document.documentElement.clientHeight
+);
+let top_menu1 = document.querySelector(".top-menu");
+top_menu1.style = `height : ${scrollHeight + 50}px`;
+
+
+
+
+let locale_HTML = document.querySelector(".main-block").innerHTML;
+function findOnPage(status) {
   function findOnPageGo() {
-    let elem_search = "/" + input + "/gi";
-    let pr = document.body.innerHTML;
-    let result_arr = [];
-    let result = [];
-    result = pr.match(/>(.*?)</g);
-    let warning = true;
-    for(var i=0;i<result.length;i++) {
-    if(result[i].match(eval(elem_search))!=null) {
-        warning = false;
-      }
-    }
-    if(warning == true) {
-      alert('No results');
-    }
-    for (var i = 0; i < result.length; i++) {
-      result_arr[i] = result[i].replace(
-        eval(elem_search),
+    let input = document.querySelector(".place_for_search").value;
+    let inputRegular = "/" + input + "/gi";
+    inputRegular.trim();
+    let match = false; // indicator true search
+    let searchElemAll = document.querySelectorAll(".mini-head");
+    searchElemAll.forEach(elem => {
+      elem.innerHTML = elem.innerHTML.replace(
+        eval(inputRegular),
         '<span style="background-color:yellow;">' + input + "</span>"
       );
-    }
-    for (var i = 0; i < result.length; i++) {
-      pr = pr.replace(result[i], result_arr[i]); //заменяем в переменной с html текст на новый из новогом ассива
-    }
-    document.body.innerHTML = pr;
+      if (!match) {
+        match = elem.innerHTML.match(
+          eval('/<span style="background-color:yellow;">/gi')
+        )
+          ? true
+          : false;
+      }
+    });
+    document.querySelector(".place_for_search").value = "";
+    if (!match) alert("Nothing found");
+    else openMenu();
   }
-  function FindOnPageBack() {
-    document.body.innerHTML = locale_HTML;
+  function findOnPageBack() {    
+    document.querySelector(".main-block").innerHTML = locale_HTML;
   }
+  if (status) {
+    findOnPageBack();
+    findOnPageGo();   
+    
+  } else if (!status) {
+    findOnPageBack();
+    document.querySelector(".place_for_search").value = "";
+  };
 }

@@ -39,18 +39,20 @@
                 value=""
                 placeholder="Search"
                 autofocus>
-                <label class="image_for_cansel" for="buttonCross"></label>
+              <label class="image_for_cansel" for="buttonCross"
+                ><i class="fa fa-times" aria-hidden="true"></i
+              ></label>
               <input
                 class="button_for_turn_back"
                 type="button"
-                onclick="javascript: findOnPage('text-to-find',false)"
-                value="X"
+                onclick="javascript: findOnPage(false)"
+                value=""
                 title="Отменить поиск"
-                id= "buttonCross">
+                id="buttonCross">
               <input
                 class="button_for_search"
-                type="submit"
-                onclick="javascript: findOnPage('text-to-find',true)"
+                type="button"
+                onclick="javascript: findOnPage(true)"
                 value="go"
                 title="Начать поиск"
                 id="buttonLupa">
