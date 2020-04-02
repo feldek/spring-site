@@ -179,9 +179,9 @@
     width: 56px;
     height: 70px;
     padding: 0;
-    position: relative;
-    right: 0px;
-    z-index: 2;
+    /* position: relative; */
+    /* right: 0px; */
+    /* z-index: 2; */
   }
   .image_for_search::before {
     position: absolute;
@@ -236,11 +236,12 @@
     /*border: 1px solid blue;*/
     width: 1024px;
   }
-  .image_for_search {
+  /* .image_for_search {
     cursor: pointer;
-    position: absolute;
+    position: relative;
     top: -70px;
-  }
+    right: 0px;
+  } */
   form {
     position: relative;
     top: 0px;
@@ -297,5 +298,8 @@
     align-items: center;
     font-size: 25px;
     color: midnightblue;
+  }
+  form.open{
+    display: none;
   }
 }
