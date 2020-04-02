@@ -62,6 +62,7 @@ function findOnPage(status) {
     inputRegular.trim();
     if (input.length < 3) {
       fill_card_exceptions("Enter more 2 symbols");
+      openMenu();
       return;
     }
     let searchElemAll = document.querySelectorAll(".frame-text");
