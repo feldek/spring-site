@@ -233,6 +233,8 @@
     display: flex;
     justify-content: flex-end;
     margin: auto;
+    position: absolute;
+    top: 4px;
     /*border: 1px solid blue;*/
     width: 1024px;
   }
@@ -255,6 +257,8 @@
     right: 56px;
   }
   .place_for_search {
+    position: absolute;
+    top: 70px;
     padding-left: 50px;
     display: flex;
     justify-content: flex-start;
@@ -272,6 +276,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 0px;
     font-size: 30px;
     border-radius: 50px;
     background: white;
