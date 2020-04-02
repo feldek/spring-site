@@ -30,7 +30,7 @@
         </div>
         <div class="container-search">
           <div class="under-header">
-            <form>
+            <form onsubmit="return false;">
               <label class="image_for_search" for="buttonLupa"></label>
               <input
                 class="place_for_search"
@@ -51,7 +51,7 @@
                 id="buttonCross">
               <input
                 class="button_for_search"
-                type="button"
+                type="submit"
                 onclick="javascript: findOnPage(true)"
                 value="go"
                 title="Начать поиск"

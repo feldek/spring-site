@@ -14,20 +14,20 @@ for (let item of itemOfPicture) {
   arrOfItem.push(item);
 }
 
-function getArrOfClone(clone) {
-  // it's for my
-  let arrClone = []; // i made clone of arrOfItem, for paste
-  clone.forEach(item => {
-    arrClone.push(item.cloneNode(true));
-  });
-  return arrClone;
-}
-let clone = getArrOfClone(arrOfItem);
+// function getArrOfClone(clone) {
+//   // it's for my
+//   let arrClone = []; // i made clone of arrOfItem, for paste
+//   clone.forEach(item => {
+//     arrClone.push(item.cloneNode(true));
+//   });
+//   return arrClone;
+// }
+// let clone = getArrOfClone(arrOfItem);
 
 let currentValueElem = itemOfPicture.length;
-clone.forEach(item => {
-  arrOfItem.push(item);
-}); //add arrClone in arrOfItem(it's main arr)
+// clone.forEach(item => {
+//   arrOfItem.push(item);
+// }); //add arrClone in arrOfItem(it's main arr)
 
 function addItemOnPage(arr) {
   //add rest elem in html
@@ -37,9 +37,6 @@ function addItemOnPage(arr) {
   }
 }
 addItemOnPage(arrOfItem);
-
-
-
 
 // full height of document
 let scrollHeight = Math.max(
@@ -53,43 +50,50 @@ let scrollHeight = Math.max(
 let top_menu1 = document.querySelector(".top-menu");
 top_menu1.style = `height : ${scrollHeight + 50}px`;
 
-
-
-
 let locale_HTML = document.querySelector(".main-block").innerHTML;
 function findOnPage(status) {
   function findOnPageGo() {
     let input = document.querySelector(".place_for_search").value;
     let inputRegular = "/" + input + "/gi";
     inputRegular.trim();
-    let match = false; // indicator true search
-    let searchElemAll = document.querySelectorAll(".mini-head");
+
+    let searchElemAll = document.querySelectorAll(".block a");
     searchElemAll.forEach(elem => {
+      let match = false; // indicator true search
       elem.innerHTML = elem.innerHTML.replace(
         eval(inputRegular),
         '<span style="background-color:yellow;">' + input + "</span>"
       );
-      if (!match) {
-        match = elem.innerHTML.match(
-          eval('/<span style="background-color:yellow;">/gi')
-        )
-          ? true
-          : false;
+      elem.closest("a").classList.toggle("open");
+      match = elem.innerHTML.match(
+        eval('/<span style="background-color:yellow;">/gi')
+      )
+        ? true
+        : false;
+      if (match) {
+        elem.closest("a").classList.toggle("open");
       }
+      match = false;
     });
     document.querySelector(".place_for_search").value = "";
-    if (!match) alert("Nothing found");
-    else openMenu();
+    let cardClassOpen = document.querySelectorAll(".block a.open");
+    if (searchElemAll.length === cardClassOpen.length) {
+      searchElemAll.forEach(elem => {
+        elem.closest("a").classList.toggle("open");
+        elem.innerHTML =
+          '<div class = "nothing_card_box"><div class = "nothing_card_box">Nothing found</div></div>';
+      });
+    }
+    openMenu();
   }
-  function findOnPageBack() {    
+  function findOnPageBack() {
     document.querySelector(".main-block").innerHTML = locale_HTML;
   }
   if (status) {
     findOnPageBack();
-    findOnPageGo();   
-    
+    findOnPageGo();
   } else if (!status) {
     findOnPageBack();
     document.querySelector(".place_for_search").value = "";
-  };
+  }
 }
