@@ -95,63 +95,15 @@
     font-family: varela round, sans-serif;
     color: #34302d;
   }
-  .picture1 {
-    width: 102px;
-    height: 90px;
-    background-position: 143px 837px;
-    margin-top: 23px;
-    margin: 30px auto;
-  }
-  .picture2 {
-    width: 135px;
-    height: 133px;
-    background-position: 518px 837px;
-    margin: 0 auto 60px;
-  }
-  .picture3 {
-    width: 130px;
-    height: 105px;
-    background-position: 669px 1072px;
-    margin: 30px auto;
-  }
-  .picture4 {
-    width: 150px;
-    height: 111px;
-    background-position: 253px 955px;
-    margin-top: 13px;
-    margin: 30px auto;
-  }
-  .picture5 {
-    width: 111px;
-    height: 111px;
-    background-position: 519px 512px;
-    margin-top: 13px;
-    margin: 30px auto;
-  }
-  .picture6 {
-    width: 145px;
-    height: 104px;
-    background-position: 361px 677px;
-    margin-top: 16px;
-    margin: 30px auto;
-  }
-  /* prettier ignore */
-  .picture1,
-  .picture2,
-  .picture3,
-  .picture4,
-  .picture5,
-  .picture6 {
-    display: block;
-    background-image: url(libs/iconsprite-3f43d82fa4826e2d08fc096eb424c09e.png);
-  }
+
   .text-menu5 {
     margin-right: 56px;
   }
   .mini-head {
     font-size: 16px;
     line-height: 20px;
-    margin-bottom: 20px;
+    margin-top: 15%;
+    margin-bottom: 10%;
     text-transform: uppercase;
     font-weight: 700;
     font-family: Montserrat, sans-serif;
@@ -165,11 +117,6 @@
     font-family: varela round, sans-serif;
     color: #34302d;
   }
-  .prop-picture {
-    margin-bottom: 25px;
-    height: 137px;
-    vertical-align: middle;
-  }
   .image_for_search {
     background: #34302d;
     display: flex;
@@ -179,9 +126,6 @@
     width: 56px;
     height: 70px;
     padding: 0;
-    /* position: relative; */
-    /* right: 0px; */
-    /* z-index: 2; */
   }
   .image_for_search::before {
     position: absolute;
@@ -193,7 +137,6 @@
     content: "\f002 ";
     z-index: 2;
   }
-
   .block a {
     text-decoration: none;
     border: 1px solid #ddd;
@@ -238,12 +181,6 @@
     /*border: 1px solid blue;*/
     width: 1024px;
   }
-  /* .image_for_search {
-    cursor: pointer;
-    position: relative;
-    top: -70px;
-    right: 0px;
-  } */
   form {
     position: relative;
     top: 0px;
@@ -290,9 +227,6 @@
   .button_for_search {
     display: none;
   }
-  .block a:nth-child(2) .mini-head {
-    margin-top: 55px;
-  }
 
   .block a.open{    
     display: none;    
@@ -309,4 +243,8 @@
   form.open{
     display: none;
   }
+  .prop-picture img{
+    height: 150px;
+  }
+  
 }
