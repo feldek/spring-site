@@ -54,7 +54,6 @@ function push_arr_card(url_picture, head_push, description_push) {
   });
 }
 
-
 function max_height_window() {
   let scrollHeight = Math.max(
     document.body.scrollHeight,
@@ -96,46 +95,27 @@ function add_card_on_page(arr_with_elem) {
 
     div_block.insertAdjacentElement("beforeend", a_box_card);
   }
+
+  let h1_head = document.createElement("h1");
+  h1_head.className = "head";
+  h1_head.innerHTML = "Main Projects";
+
+  let p_text = document.createElement("p");
+  p_text.className = "text";
+  p_text.innerHTML =
+    "From configuration to security, web apps to big data – whatever the infrastructure" +
+    "needs of your application may be, there is a  <strong>Spring Project</strong> to help" +
+    "you build it. Start small and use just what you need – <strong>Spring is modular by design.</strong>";
+
   let div_main_block = document.querySelector(".main-block");
+  div_main_block.insertAdjacentElement("beforeend", h1_head);
+  div_main_block.insertAdjacentElement("beforeend", p_text);
   div_main_block.insertAdjacentElement("beforeend", div_block);
 }
 
 add_card_on_page(arr_card);
 max_height_window();
 
-
-// function findOnPage() {
-
-//   function findOnPageGo() {
-//     let copy_arr_card = JSON.parse(JSON.stringify(arr_card));
-//     let input = document.querySelector(".place_for_search").value.trim();
-
-//     input = "spring";
-//     let inputRegular = "/" + input + "/gi";
-
-//     copy_arr_card.forEach((elem) => {
-//       elem.head = elem.head.replace(
-//         eval(inputRegular),
-//         '<span style="background-color:yellow;">' + input + "</span>"
-//       );
-//       elem.description = elem.description.replace(
-//         eval(inputRegular),
-//         `<span style="background-color:yellow;">${input}</span>`
-//       );   
-//     });
-//     document.querySelector(".block").remove();
-//     add_card_on_page(copy_arr_card);
-//     elem.head.match(eval('/<span style="background-color:yellow;">/gi')) ||
-//         elem.description.match(eval('/<span style="background-color:yellow;">/gi'))?
-//         true: document.querySelector()//все приехали, какой селектор в архиве оО? 
-//   }
-//   function findOnPageBack() {
-//     document.querySelector(".block").remove();
-//     add_card_on_page(arr_card);
-//   }
-// }
-// findOnPage();
-// // document.querySelector('.block').remove();
 let locale_HTML = document.querySelector(".main-block").innerHTML;
 function findOnPage(status) {
   function findOnPageGo() {
@@ -149,7 +129,7 @@ function findOnPage(status) {
       return;
     }
     let searchElemAll = document.querySelectorAll(".frame-text");
-    searchElemAll.forEach(elem => {
+    searchElemAll.forEach((elem) => {
       let match = false; // indicator true search
       elem.innerHTML = elem.innerHTML.replace(
         eval(inputRegular),
@@ -170,18 +150,18 @@ function findOnPage(status) {
 
     let cardClassOpen = document.querySelectorAll(".block a.open");
 
-    if (searchElemAll.length === cardClassOpen.length) fill_card_exceptions("Nothing found");
+    if (searchElemAll.length === cardClassOpen.length)
+      fill_card_exceptions("Nothing found");
 
     function fill_card_exceptions(content) {
-      document.querySelectorAll(".block a").forEach(elem => {
-        if(elem.closest("a.box-card").classList[1]) elem.closest("a.box-card").classList.toggle("open");
+      document.querySelectorAll(".block a").forEach((elem) => {
+        if (elem.closest("a.box-card").classList[1])
+          elem.closest("a.box-card").classList.toggle("open");
         elem.innerHTML = `<div class = "nothing_card_box"><div class = "nothing_card_box">${content}</div></div>`;
       });
     }
 
-    
     openMenu();
-    
   }
   function findOnPageBack() {
     document.querySelector(".main-block").innerHTML = locale_HTML;
