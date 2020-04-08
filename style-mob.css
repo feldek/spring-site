@@ -394,8 +394,7 @@ form {
     font-size: 18px;
     z-index: 3;
   }
-  .navigation,
-  .navigation1 {
+  .navigation {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -410,8 +409,7 @@ form {
     margin: 0;
     z-index: 5;
   }
-  .navigation::after,
-  .navigation1::after {
+  .navigation::after{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -427,7 +425,6 @@ form {
   }
   .navigation {
     left: 0;
-    background: red;
     z-index: 1;
   }
   .all-menu:target {
@@ -463,15 +460,18 @@ form {
     margin: 15px auto;
   }
 
-  .top-menu, .under-header, .navigation1{
+  .top-menu, .under-header{
     display: none;
   }
-  .top-menu.open, .under-header.open, .navigation1.open{
+  .top-menu.open, .under-header.open{
     display: flex;  
   }
   .navigation.open{
     display: flex;
-    z-index: 0;
+  }
+  .navigation.open::after{
+    position: relative;
+    left: 300px;
   }
   .block a.open{    
     display: none;    
@@ -485,5 +485,11 @@ form {
     font-size: 25px;
     color: midnightblue;
   }
+  .main-block .nothingFound{
+    font-size: 40px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
 
 }

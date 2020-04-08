@@ -5,7 +5,7 @@ function openMenu() {
   document.querySelector(".under-header").classList.toggle("open");
 }
 document.querySelector(".navigation").onclick = openMenu;
-document.querySelector(".navigation1").onclick = openMenu;
+// document.querySelector(".navigation1").onclick = openMenu;
 
 let itemOfPicture = document.querySelectorAll(".main-block .block > a");
 let arrOfItem = [];

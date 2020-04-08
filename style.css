@@ -129,6 +129,7 @@
   }
   .image_for_search::before {
     position: absolute;
+    cursor: pointer;
     display: block;
     color: #eee;
     font-size: 24px;
@@ -246,5 +247,11 @@
   .prop-picture img{
     height: 150px;
   }
+  .main-block .nothingFound{
+    font-size: 80px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
   
 }

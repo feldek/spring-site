@@ -14,26 +14,19 @@
     height: 70px;
   }
   .site-header {
-    display: flex;
-    justify-content: space-between;
     max-width: 1024px;
     /*border: 2px solid blue;*/
     margin: auto;
   }
   .top-menu {
-    display: flex;
     max-width: 100%;
-    height: 70px;
     flex-direction: row;
     justify-content: flex-end;
   }
-
   .lable:hover {
     background-position: 0 -47px; /* Смещение фона */
   }
   .site-header a {
-    display: flex;
-    justify-content: center;
     align-items: center;
     text-decoration: none;
     color: #eee;
@@ -152,46 +145,14 @@
   .block a:hover {
     border: 1px solid black;
   }
-  .top-menu .text-menu1 {
-    display: none;
-  }
+
   .container-search {
     display: flex;
     justify-content: center;
     /*border: 1px solid red;*/
   }
-  .under-header {
-    display: flex;
-    justify-content: flex-end;
-    margin: auto;
-    position: absolute;
-    top: 4px;
-    /*border: 1px solid blue;*/
-    width: 1024px;
-  }
-  form {
-    position: relative;
-    top: 0px;
-    max-width: 60px;
-    height: 70px;
-  }
-
   .place_for_search:focus {
     outline:none;
-  }
-  .image_for_cansel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 70px;
-    right: 0px;
-    font-size: 30px;
-    border-radius: 50px;
-    background: white;
-    width: 56px;
-    height: 70px;
-    cursor: pointer;
   }
   .button_for_turn_back,
   .button_for_search {
@@ -266,14 +227,12 @@
   height: inherit;
 }
 .top-menu{
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
   top: 50px;
   background: #34302d;
   /*border: 1px solid yellow; */
-  height: none;
   order: 1;
 }
 .top-menu a:last-of-type{
@@ -309,6 +268,8 @@
   width: 100%
 }
 .under-header{
+  position: absolute;
+  top: 4px;
   justify-content: center;
   align-items: center;
   width: 300px;
@@ -324,6 +285,7 @@
 }
 form {
   position: relative;
+  top: 0px;  
   align-items: center;
   max-width: 100%;
   height: 30px;
@@ -380,6 +342,8 @@ form {
   justify-content: center;
   align-items: center;
   position: absolute;
+  right: 0px;
+  cursor: pointer;
   border-radius: 5px;
   width: 35px;
   height: 35px;
@@ -389,7 +353,7 @@ form {
   font-size: 18px;
   z-index: 3;
 }
-.navigation, .navigation1{
+.navigation{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -402,9 +366,8 @@ form {
   /*border: 1px solid red;*/
   padding: 0;
   margin: 0;
-  z-index: 5;
 }
-.navigation::after, .navigation1::after{
+.navigation::after{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -417,10 +380,10 @@ form {
   font-size: 24px;  
   width: 50px;
   height: 50px;
+  z-index: 1;
 }
 .navigation{
   left: 0;
-  background: red;
 }
 .all-menu:target{
   display: none;
@@ -444,15 +407,15 @@ form {
 header{
   height: 50px;
 }
-.top-menu, .under-header, .navigation1{
+.top-menu, .under-header{
   display: none;
 }
-.top-menu.open, .under-header.open, .navigation1.open{
+.top-menu.open, .under-header.open{
   display: flex;  
 }
-.navigation.open{
-  display: flex;
-  z-index: 0;
+.navigation.open::after{
+  position: relative;
+  left: 300px;
 }
 .block a.open{    
   display: none;    
@@ -466,9 +429,12 @@ header{
   font-size: 25px;
   color: midnightblue;
 }
-/* form.open{
-  display: none;
-} */
+.main-block .nothingFound{
+    font-size: 50px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
 
 
 

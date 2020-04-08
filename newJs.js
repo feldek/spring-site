@@ -1,11 +1,9 @@
 function openMenu() {
   document.querySelector(".top-menu").classList.toggle("open");
   document.querySelector(".navigation").classList.toggle("open");
-  document.querySelector(".navigation1").classList.toggle("open");
   document.querySelector(".under-header").classList.toggle("open");
 }
 document.querySelector(".navigation").onclick = openMenu;
-document.querySelector(".navigation1").onclick = openMenu;
 
 let arr_card = [
   {
@@ -48,13 +46,20 @@ let arr_card = [
 
 function push_arr_card(url_picture, head_push, description_push) {
   arr_card.push({
-    relative_url_picture: `${url_picture}`,
-    head: `${head_push}`,
-    description: `${description_push}`,
+    relative_url_picture: url_picture,
+    head: head_push,
+    description: description_push,
   });
 }
+// let proebalsya = [
+//   "libs/card_picture/spring_integration.svg",
+//   "Spring integration",
+//   "Supports the well-known Enterprise Integration Patterns via lightweight messagging and declarative adapters.",
+// ]
+// push_arr_card(...proebalsya);
 
-function max_height_window() {
+
+function max_height_window(selector) {
   let scrollHeight = Math.max(
     document.body.scrollHeight,
     document.documentElement.scrollHeight,
@@ -63,7 +68,7 @@ function max_height_window() {
     document.body.clientHeight,
     document.documentElement.clientHeight
   );
-  let top_menu1 = document.querySelector(".top-menu");
+  let top_menu1 = document.querySelector(selector);
   top_menu1.style = `height : ${scrollHeight}px`;
 }
 
@@ -114,30 +119,35 @@ function add_card_on_page(arr_with_elem) {
 }
 
 add_card_on_page(arr_card);
-max_height_window();
+max_height_window(".top-menu");
 
 let locale_HTML = document.querySelector(".main-block").innerHTML;
 function findOnPage(status) {
   function findOnPageGo() {
-    let input = document.querySelector(".place_for_search").value;
-    if (input === "") return;
-    let inputRegular = "/" + input + "/gi";
-    inputRegular.trim();
+    let input = document.querySelector(".place_for_search").value.trim();
+    if (input === "") return;    
+    let inputRegular = new RegExp(`${input}`, 'gi');
+
     if (input.length < 3) {
-      fill_card_exceptions("Enter more 2 symbols");
+      document.querySelector(".main-block").innerHTML =
+        "<div class = 'nothingFound'>Enter more 2 symbols</div>";
+      document.querySelector(
+        ".nothingFound"
+      ).style = `height : ${document.documentElement.clientHeight - 140}px`;       
       openMenu();
       return;
     }
     let searchElemAll = document.querySelectorAll(".frame-text");
     searchElemAll.forEach((elem) => {
+      let indCoinside = new RegExp(`<span style="background-color:yellow;">${input}</span>`,"gi")
       let match = false; // indicator true search
       elem.innerHTML = elem.innerHTML.replace(
-        eval(inputRegular),
+        inputRegular,
         '<span style="background-color:yellow;">' + input + "</span>"
       );
       elem.closest("a.box-card").classList.toggle("open");
-      match = elem.innerHTML.match(
-        eval('/<span style="background-color:yellow;">/gi')
+      match = elem.innerHTML.match(      
+      indCoinside
       )
         ? true
         : false;
@@ -150,8 +160,14 @@ function findOnPage(status) {
 
     let cardClassOpen = document.querySelectorAll(".block a.open");
 
-    if (searchElemAll.length === cardClassOpen.length)
-      fill_card_exceptions("Nothing found");
+    if (searchElemAll.length === cardClassOpen.length) {
+
+      document.querySelector(".main-block").innerHTML =
+        "<div class = 'nothingFound'>Nothing found</div>";
+      document.querySelector(
+        ".nothingFound"
+      ).style = `height : ${document.documentElement.clientHeight - 140}px`;
+    }
 
     function fill_card_exceptions(content) {
       document.querySelectorAll(".block a").forEach((elem) => {
@@ -173,7 +189,7 @@ function findOnPage(status) {
   if (status) {
     findOnPageBack();
     findOnPageGo();
-    max_height_window();
+    max_height_window(".top-menu");
   } else if (!status) {
     findOnPageBack();
     document.querySelector("form").classList.toggle("open");
