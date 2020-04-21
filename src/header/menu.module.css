@@ -1,0 +1,29 @@
+.menu{
+  display: flex;  
+  position: relative;
+  top: 4px
+}
+.menu>a:hover,.menu .button_for_search:hover {
+  background-color: #6db33f;
+}
+.menu>a,.menu .button_for_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  padding: 0px 20px;
+  background-color: #34302d;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+.menu .button_for_search{
+  width: 56px;
+  padding: 0;
+}
+.menu>a:first-child{
+  display: none;
+}
+.menu>a:nth-child(2){
+  background-color: #6db33f;
+}

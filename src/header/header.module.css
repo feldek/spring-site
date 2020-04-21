@@ -1,0 +1,32 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1024px;
+  margin: auto;  
+}
+.menu_logo_pc {
+    float: left;
+    background-image: url(../storage/spring-logo.png); 
+    display: block; 
+    width: 220px; 
+    height: 48px;     
+    background-color:#34302d;
+    margin: 11px 0px 11px;
+  }
+.menu_logo_pc:hover {
+  background-position: 0 -47px; /* Смещение фона */
+}
+.menu_logo_pc{
+  position: relative;
+  top: 4px
+}
+.top_line{
+  height: 70px;
+  background-color: #34302d;
+  position: absolute;
+  width: 100%;
+  right: 0px;
+  left: 0px;
+  z-index: -1;
+  border-top: 4px solid #6db33f;
+}
