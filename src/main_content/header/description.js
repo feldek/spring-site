@@ -1,7 +1,7 @@
 import React from "react";
-let Description_main=(props)=>{
+let DescriptionHeading=(props)=>{
   return(
   <p>{props.description}</p>
   )
 }
-export default Description_main
+export default DescriptionHeading

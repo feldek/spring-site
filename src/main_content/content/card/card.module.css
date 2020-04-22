@@ -1,0 +1,12 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: black;
+}
+.card:hover{
+  border: 1px solid black;
+}
