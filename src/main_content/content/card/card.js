@@ -6,13 +6,14 @@ import { NavLink } from "react-router-dom";
 
 let BoxСard = (props) => {
   return (
-    <a href ="/#"className={s.card}>
+    <a href ="/#"className={s.card}>      
       <CardPicture relative_url_picture={props.relative_url_picture} />
       <TextCardContainer head={props.head} description={props.description} />
     </a>
   );
 };
 
+let approve="test one";
 class Card extends React.Component {
   state = {
     arr_card: [

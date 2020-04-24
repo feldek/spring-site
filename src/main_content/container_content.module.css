@@ -1,4 +1,16 @@
-.container_content{
-  max-width: 1024px;
-  margin: 70px auto  50px auto;
+@media (min-width: 1000px) {
+  .container_content {
+    max-width: 1024px;
+    margin: 70px auto 50px auto;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px) {
+  .container_content {
+    margin: 70px 20px 50px 20px;
+  }
+}
+@media (max-width: 600px) {
+  .container_content {
+    margin: 70px 20px 50px 20px;
+  }
 }
