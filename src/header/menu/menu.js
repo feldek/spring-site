@@ -2,15 +2,22 @@ import React from "react";
 import s from "./menu.module.css";
 import ButtonForSearch from "../button_for_search/button_for_search";
 
-let Menu = () => {
+let Menu = (props) => {
+  let list_menu = props.menu.menu_list.map((item) => {
+    return (
+      <a href="/#" key={item + Math.random()}>
+        {item}
+      </a>
+    );
+  });
+
   return (
     <div className={s.menu}>
-      <a href="/#">Home</a>
-      <a href="/#">Projects</a>
-      <a href="/#">Guides</a>
-      <a href="/#">Blog</a>
-      <a href="/#">Training & Certification</a>
-      <ButtonForSearch />
+      {list_menu}
+      <ButtonForSearch
+        input_search_text={props.menu.input_search_text}
+        updateInputSearchText={props.updateInputSearchText}
+      />
     </div>
   );
 };

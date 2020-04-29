@@ -5,12 +5,19 @@ import ContainerContent from "./main_content/container_content";
 import { BrowserRouter } from "react-router-dom";
 
 
-function App() {
+function App(props) {
+  
   return (
     <BrowserRouter>
       <div>
-        <Header />
-        <ContainerContent />
+        <Header
+          menu={props.state.menu}
+          updateInputSearchText={props.updateInputSearchText}
+        />
+        <ContainerContent
+          content={props.state.content}
+          
+        />
       </div>
     </BrowserRouter>
   );
