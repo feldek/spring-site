@@ -1,23 +1,21 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-
-import state, { subscribe } from './data/state';
+import store from './data/state';
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import { updateInputSearchText} from "./data/state"
 
 export let reRenderEntireTree = (state) => {
   ReactDOM.render(
+
     <React.StrictMode>
-      <App state={state}  updateInputSearchText={updateInputSearchText}/>
+      <App state={state}  dispatch={store.dispatch.bind(store)}/>
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
-reRenderEntireTree(state);
-subscribe(reRenderEntireTree);
+reRenderEntireTree(store.getState());
+store.subscribe(reRenderEntireTree);
 
 
 

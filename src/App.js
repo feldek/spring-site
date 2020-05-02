@@ -6,17 +6,17 @@ import { BrowserRouter } from "react-router-dom";
 
 
 function App(props) {
-  
+ 
   return (
     <BrowserRouter>
       <div>
-        <Header
+        <Header        
           menu={props.state.menu}
-          updateInputSearchText={props.updateInputSearchText}
+          dispatch={props.dispatch}
         />
         <ContainerContent
           content={props.state.content}
-          
+          dispatch={props.dispatch}          
         />
       </div>
     </BrowserRouter>

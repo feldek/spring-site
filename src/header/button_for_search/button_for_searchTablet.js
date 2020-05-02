@@ -2,19 +2,26 @@ import React from "react";
 import s from "./button_for_search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { updateInputSearchText, resetInputSearchText, toggleStateInputSearch } from "../../data/state";
+import { updateInputSearchText, resetInputSearchText, toggleStateMenu } from "../../data/state";
 
-let ButtonForSearch = (props) => {
+let ButtonForSearchTablet = (props) => {
+
   let onInputChange = (e) => {
     let text = e.target.value;
     props.dispatch(updateInputSearchText(text));
   };
-  let input_search_container;
 
-  if (props.menu.searchIsOpened) {
-    input_search_container = (
-      <div>
-        <div
+  return (
+    <div className={s.search}>
+      <div
+        className={s.button_for_search}
+        onClick={() => {
+          props.dispatch(toggleStateMenu());
+        }}
+      >
+        <FontAwesomeIcon icon={faSearch} />
+      </div>
+      <div
           className={s.button_for_cancel}
           onClick={() => {
             props.dispatch(resetInputSearchText());
@@ -34,23 +41,8 @@ let ButtonForSearch = (props) => {
             autoFocus
           />
         </form>
-      </div>
-    );
-  }
-
-  return (
-    <div className={s.search}>
-      <div
-        className={s.button_for_search}
-        onClick={() => {
-          props.dispatch(toggleStateInputSearch());
-        }}
-      >
-        <FontAwesomeIcon icon={faSearch} />
-      </div>
-      {input_search_container}
       
     </div>
   );
 };
-export default ButtonForSearch;
+export default ButtonForSearchTablet;

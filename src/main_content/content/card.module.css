@@ -10,6 +10,11 @@
 .card:hover{
   border: 1px solid black;
 }
+.nothingFound{
+  font-size: 60px;
+}
+
+
 
 @media (min-width: 1000px) {
   .container {
@@ -18,6 +23,14 @@
     grid-auto-rows: 400px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+  }
+  .nothingFound{
+    position: absolute;
+    display: flex;  
+    width: 1024px;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
   }
 }
 @media (min-width: 600px)and (max-width: 1000px) {
@@ -30,6 +43,14 @@
     max-width: 800px;
     margin: 0 auto;
   }
+  .nothingFound{
+    position: absolute;
+    display: flex;  
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+  }
 }
 @media (max-width: 600px) {
   .container {
@@ -41,4 +62,8 @@
     min-width: 250px;
     max-width: 350px;
   }
+  .nothingFound{
+    position: relative;
+  }
+
 }
