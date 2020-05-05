@@ -1,4 +1,4 @@
-import store from "./state"
+// import store from "./state"
 const SHOW_SEARCH_CARD = "SHOW-SEARCH-CARD";
 
 const contentReducer = (state, action) => {

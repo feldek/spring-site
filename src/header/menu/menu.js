@@ -8,7 +8,7 @@ import Media from "react-media";
 let Menu = (props) => {
   let list_menu = props.menu.menu_list.map((item) => {
     return (
-      <a href="/#" key={item + Math.random()}>
+      <a href="/#" key={item}>
         {item}
       </a>
     );
