@@ -1,10 +1,9 @@
 import React from "react";
-import s from "./menu_tablet.module.css";
-import Menu from "./menu";
+import s from "./MenuTablet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { toggleStateMenu } from "../../data/state";
-
+import { toggleStateMenu } from "../../Data/State";
+import Menu from "./Menu";
 
 let MenuTablet = (props) => {
   let dropDownText;
@@ -13,16 +12,16 @@ let MenuTablet = (props) => {
   }
   return (
     <div className={s.menu}>
-    <div
-      className={s.button_open_menu}
-      onClick={() => {
-        props.dispatch(toggleStateMenu());
-      }}
-    >
-      <FontAwesomeIcon icon={faBars} />
+      <button
+        className={s.buttonOpenMenu}
+        onClick={() => {
+          props.dispatch(toggleStateMenu());
+        }}
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+      <div className={s.listMenu}>{dropDownText}</div>
     </div>
-    <div className={s.list_menu}>{dropDownText}</div>
-  </div>
   );
 };
 export default MenuTablet;

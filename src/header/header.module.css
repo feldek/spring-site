@@ -5,9 +5,9 @@
     max-width: 1024px;
     margin: auto;
   }
-  .menu_logo_pc {
+  .menuLogoPc {
     float: left;
-    background-image: url(../storage/spring-logo.png);
+    background-image: url(../Storage/spring-logo.png);
     display: block;
     width: 220px;
     height: 48px;
@@ -16,10 +16,10 @@
     position: relative;
     top: 4px;
   }
-  .menu_logo_pc:hover {
-    background-position: 0 -47px; /* Смещение фона */
+  .menuLogoPc:hover {
+    background-position: 0 -47px;
   }
-  .top_line {
+  .topLine {
     height: 70px;
     background-color: #34302d;
     position: absolute;
@@ -29,13 +29,13 @@
     z-index: -1;
     border-top: 4px solid #6db33f;
   }
-  .button_open_menu {
+  .buttonOpenMenu {
     display: none;
   }
 }
 @media (max-width: 1000px) {
-  .menu_logo_pc {
-    background-image: url(../storage/spring-logo.png);
+  .menuLogoPc {
+    background-image: url(../Storage/spring-logo.png);
     display: block;
     width: 220px;
     height: 48px;
@@ -45,15 +45,15 @@
     top: -9px;
     right: 0px;
   }
-  .menu_logo_pc:hover {
-    background-position: 0 -47px; /* Смещение фона */
+  .menuLogoPc:hover {
+    background-position: 0 -47px;
   }
   header {
     display: flex;
     justify-content: space-between;
     margin: auto;
   }
-  .top_line {
+  .topLine {
     height: 50px;
     background-color: #34302d;
     position: absolute;
@@ -62,8 +62,4 @@
     left: 0px;
     z-index: -1;
   }
-
-
-
-
 }

@@ -1,7 +1,6 @@
 .picture {
   text-align: center;
 }
-
 @media (min-width: 1000px) {
   .picture img {
     height: 150px;

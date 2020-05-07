@@ -1,11 +1,8 @@
 @media (max-width: 1000px) {
-  .button_open_menu {
+  .buttonOpenMenu {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: absolute; */
-    /* top: 0px; */
-    /* left: 300px; */
     height: 50px;
     width: 50px;
     background-color: #555;
@@ -13,18 +10,15 @@
     font-size: 30px;
     order: 2;
   }
-  .menu{
+  .menu {
     display: flex;
-    /* position: absolute; */
-    /* flex-direction: column; */
-    /* width: 300px; */
     justify-content: flex-start;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
   }
-  .list_menu{
+  .listMenu {
     order: 1;
     background-color: #34302d;
     min-height: 100vh;
