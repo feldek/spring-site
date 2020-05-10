@@ -7,7 +7,7 @@
   }
   .menuLogoPc {
     float: left;
-    background-image: url(../Storage/spring-logo.png);
+    background-image: url(../Storage/SpringLogo.png);
     display: block;
     width: 220px;
     height: 48px;
@@ -35,7 +35,7 @@
 }
 @media (max-width: 1000px) {
   .menuLogoPc {
-    background-image: url(../Storage/spring-logo.png);
+    background-image: url(../Storage/SpringLogo.png);
     display: block;
     width: 220px;
     height: 48px;
