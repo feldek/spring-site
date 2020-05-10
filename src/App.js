@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header/Header";
 import ContainerContent from "./Content/Project/ContainerContent";
-import { BrowserRouter } from "react-router-dom";
+
 
 function App(props) {
+  let [inputSearchText, setInputSearchText] = useState("");
+  const updateInputSearchText = (text) => {
+    setInputSearchText(text);
+  };
+  const resetInputSearchText = () => {
+    setInputSearchText("");
+  };
+
   return (
-    <BrowserRouter>
+
       <div>
-        <Header menu={props.state.menu} dispatch={props.dispatch} />
+        <Header
+          updateInputSearchText={updateInputSearchText}
+          resetInputSearchText={resetInputSearchText}
+          inputSearchText={inputSearchText}
+        />
         <ContainerContent
-          content={props.state.content}
-          dispatch={props.dispatch}
+          inputSearchText={inputSearchText}
         />
       </div>
-    </BrowserRouter>
+
   );
 }
 

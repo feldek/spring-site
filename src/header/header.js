@@ -5,6 +5,13 @@ import Media from "react-media";
 import MenuTablet from "./Menu/MenuTablet";
 
 let Header = (props) => {
+  let menuList = [
+    "Home",
+    "Projects",
+    "Guides",
+    "Blog",
+    "Training & certification",
+  ];
   return (
     <header>
       <div className={s.topLine}></div>
@@ -12,12 +19,24 @@ let Header = (props) => {
       <Media
         query="(max-width: 1000px)"
         render={() => (
-          <MenuTablet menu={props.menu} dispatch={props.dispatch} />
+          <MenuTablet
+            menuList={menuList}
+            updateInputSearchText={props.updateInputSearchText}
+            resetInputSearchText={props.resetInputSearchText}
+            inputSearchText={props.inputSearchText}
+          />
         )}
       />
       <Media
         query="(min-width: 1000px)"
-        render={() => <Menu menu={props.menu} dispatch={props.dispatch} />}
+        render={() => (
+          <Menu
+            menuList={menuList}
+            updateInputSearchText={props.updateInputSearchText}
+            resetInputSearchText={props.resetInputSearchText}
+            inputSearchText={props.inputSearchText}
+          />
+        )}
       />
     </header>
   );

@@ -1,45 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./PlaceForSearch.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-import {
-  updateInputSearchText,
-  resetInputSearchText,
-  toggleStateInputSearch,
-} from "../../Data/State";
+import { useSpring, animated } from "react-spring";
 
 let PlaceForSearch = (props) => {
   let onInputChange = (e) => {
     let text = e.target.value;
-    props.dispatch(updateInputSearchText(text));
+    props.updateInputSearchText(text);
   };
-  let inputSearchContainer;
 
-  if (props.menu.searchIsOpened) {
-    inputSearchContainer = (
-      <div>
-        <button
-          className={s.buttonForCancel}
-          onClick={() => {
-            props.dispatch(resetInputSearchText());
-          }}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-        <form>
-          <input
-            onChange={onInputChange}
-            value={props.menu.inputSearchText}
-            className={s.placeForSearch}
-            type="text"
-            id="text-to-find"
-            placeholder="Enter something to search"
-            autoFocus
-          />
-        </form>
-      </div>
-    );
-  }
+  let [toggleInputSearch, setToggleInputSearch] = useState(false);
+  const stateToggleInputSearch = () => {
+    setToggleInputSearch(!toggleInputSearch);
+  };
+
+  const { x } = useSpring({
+    from: { x: 0 },
+    x: toggleInputSearch ? 1 : 0,
+    config: { duration: 500 },
+  });
 
   return (
     <div className={s.search}>
@@ -47,12 +27,39 @@ let PlaceForSearch = (props) => {
         name="buttonForSearch"
         className={s.buttonForSearch}
         onClick={() => {
-          props.dispatch(toggleStateInputSearch());
+          stateToggleInputSearch();
         }}
       >
         <FontAwesomeIcon icon={faSearch} />
       </button>
-      {inputSearchContainer}
+      {/* {toggleInputSearch && ( */}
+      <animated.div
+        style={{
+          opacity: x.interpolate({ range: [0, 1], output: [0.3, 1] }),
+          transform: x.interpolate((x) => `scale(${x})`),
+        }}
+      >
+        <button
+          className={s.buttonForCancel}
+          onClick={() => {
+            props.resetInputSearchText();
+          }}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+        <form>
+          <input
+            onChange={onInputChange}
+            value={props.inputSearchText}
+            className={s.placeForSearch}
+            type="text"
+            id="text-to-find"
+            placeholder="Enter something to search"
+            autoFocus
+          />
+        </form>
+      </animated.div>
+      {/* )} */}
     </div>
   );
 };

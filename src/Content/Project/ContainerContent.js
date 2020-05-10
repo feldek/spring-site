@@ -7,7 +7,7 @@ let ContainerContent = (props) => {
   return (
     <div className={s.container_content}>
       <ContainerHeading />
-      <Card content={props.content} dispatch={props.dispatch} />
+      <Card inputSearchText={props.inputSearchText} />
     </div>
   );
 };

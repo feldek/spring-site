@@ -33,8 +33,9 @@
     position: absolute;
     background-color: hsl(0, 7%, 81%);
     border: none;
-    left: -448px;
-    top: 70px;
+    /* left: -448px; */
+    left: -972px;
+    top: 0px;
     width: 973px;
     height: 56px;
   }
