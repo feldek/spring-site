@@ -1,9 +1,9 @@
 import React from "react";
 import TextCard from "./TextCard";
 import CardPicture from "./CardPicture";
-import s from "./Card.module.css";
+import s from "./Cards.module.css";
 
-let Card = (props) => {
+let Cards = (props) => {
   let cards = [
     {
       relativeUrlPicture: "storage/card_picture/spring_boot.svg",
@@ -42,8 +42,9 @@ let Card = (props) => {
         "Supports the well-known Enterprise Integration Patterns via lightweight messagging and declarative adapters.",
     },
   ];
+  let alreadyFilteredCards;
 
-  const sortCards = (searchText, cards) => {
+  const filterCards = (searchText, cards) => {
     let regExpSearchText = new RegExp(`${searchText}`, "gi");
     return cards.filter((card) => {
       return (
@@ -53,35 +54,26 @@ let Card = (props) => {
     });
   };
 
-  const highlightSearchText = (searchText, incomingText) => {
-    let regExpSearchText = new RegExp(`${searchText}`, "gi");
-    return {
-      __html: incomingText.replace(
-        regExpSearchText,
-        '<span style="background-color:yellow;">' + searchText + "</span>"
-      ),
-    };
-  };
+  alreadyFilteredCards = filterCards(props.inputSearchText, cards);
 
-  let renderArrCard =
-    sortCards(props.inputSearchText, cards).length === 0 ? (
+  let renderCards =
+    alreadyFilteredCards.length === 0 ? (
       <div className={s.nothingFound}>"Nothing found"</div>
     ) : (
-      sortCards(props.inputSearchText, cards).map((card) => {
+      alreadyFilteredCards.map((card) => {
         return (
           <a href="/#" className={s.card} key={card.head}>
             <CardPicture relativeUrlPicture={card.relativeUrlPicture} />
             <TextCard
               head={card.head}
               description={card.description}
-              highlightSearchText={highlightSearchText}
               inputSearchText={props.inputSearchText}
             />
           </a>
         );
       })
     );
-  return <div className={s.container}>{renderArrCard}</div>;
+  return <div className={s.container}>{renderCards}</div>;
 };
 
-export default Card;
+export default Cards;

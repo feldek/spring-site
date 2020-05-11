@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Menu.module.css";
-import PlaceForSearch from "../../Content/PlaceForSearch/PlaceForSearch";
 import Media from "react-media";
+import PlaceSearch from "../../Content/PlaceSearch/PlaceSearch";
 
 let Menu = (props) => {
   let listMenu = props.menuList.map((item) => {
@@ -18,7 +18,7 @@ let Menu = (props) => {
       <Media
         query="(min-width: 1000px)"
         render={() => (
-          <PlaceForSearch
+          <PlaceSearch
             updateInputSearchText={props.updateInputSearchText}
             resetInputSearchText={props.resetInputSearchText}
             inputSearchText={props.inputSearchText}

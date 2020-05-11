@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import s from "./PlaceForSearch.module.css";
+import s from "./PlaceSearch.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, animated } from "react-spring";
 
-let PlaceForSearch = (props) => {
+let PlaceSearch = (props) => {
   let onInputChange = (e) => {
     let text = e.target.value;
     props.updateInputSearchText(text);
@@ -24,15 +24,13 @@ let PlaceForSearch = (props) => {
   return (
     <div className={s.search}>
       <button
-        name="buttonForSearch"
-        className={s.buttonForSearch}
-        onClick={() => {
-          stateToggleInputSearch();
-        }}
+        form="text-to-find"
+        name="buttonSearch"
+        className={s.buttonSearch}
+        onClick={stateToggleInputSearch}
       >
         <FontAwesomeIcon icon={faSearch} />
       </button>
-      {/* {toggleInputSearch && ( */}
       <animated.div
         style={{
           opacity: x.interpolate({ range: [0, 1], output: [0.3, 1] }),
@@ -40,10 +38,9 @@ let PlaceForSearch = (props) => {
         }}
       >
         <button
-          className={s.buttonForCancel}
-          onClick={() => {
-            props.resetInputSearchText();
-          }}
+          form="text-to-find"
+          className={s.buttonCancel}
+          onClick={props.resetInputSearchText}
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
@@ -51,7 +48,7 @@ let PlaceForSearch = (props) => {
           <input
             onChange={onInputChange}
             value={props.inputSearchText}
-            className={s.placeForSearch}
+            className={s.placeSearch}
             type="text"
             id="text-to-find"
             placeholder="Enter something to search"
@@ -59,8 +56,7 @@ let PlaceForSearch = (props) => {
           />
         </form>
       </animated.div>
-      {/* )} */}
     </div>
   );
 };
-export default PlaceForSearch;
+export default PlaceSearch;

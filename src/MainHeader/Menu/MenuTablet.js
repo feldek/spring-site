@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import s from "./MenuTablet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import PlaceForSearchTablet from "../../Content/PlaceForSearch/PlaceForSearchTablet";
+import PlaceSearchTablet from "../../Content/PlaceSearch/PlaceSearchTablet";
+import { animated, useTransition } from "react-spring";
 
-let MenuTablet = (props) => {
-  let [toggleMenu, setToggleMenu] = useState(false);
-  let stateToggleMenu = () => {
+let MenuTablet = (props1) => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const stateToggleMenu = () => {
     setToggleMenu(!toggleMenu);
   };
-  const [render, setRender] = useState(toggleMenu);
+  const transitions = useTransition(toggleMenu, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 500 },
+  });
 
-  let listMenu = props.menuList.map((item) => {
+  let listMenu = props1.menuList.map((item) => {
     return (
       <a href="/#" key={item}>
         {item}
@@ -19,39 +25,24 @@ let MenuTablet = (props) => {
     );
   });
 
-  useEffect(() => {
-    if (toggleMenu) setRender(true);
-  }, [toggleMenu]);
-
-  const onAnimationEnd = () => {
-    if (!toggleMenu) setRender(false);
-  };
-
   return (
     <div className={s.menu}>
-      <button
-        style={{ animation: `${toggleMenu ? "fadeIn" : "fadeOut"} 1.5s` }}
-        className={s.buttonOpenMenu}
-        onClick={() => {
-          stateToggleMenu();
-        }}
-      >
+      <button className={s.buttonOpenMenu} onClick={stateToggleMenu}>
         <FontAwesomeIcon icon={faBars} />
       </button>
-      {render && (
-        <div
-          className={s.listMenu}
-          style={{ animation: `${toggleMenu ? "fadeIn" : "fadeOut"} 1.5s` }}
-          onAnimationEnd={onAnimationEnd}
-        >
-          {listMenu}
-          <PlaceForSearchTablet
-            stateToggleMenu={stateToggleMenu}
-            updateInputSearchText={props.updateInputSearchText}
-            resetInputSearchText={props.resetInputSearchText}
-            inputSearchText={props.inputSearchText}
-          />
-        </div>
+      {transitions.map(
+        ({ item, key, props }) =>
+          item && (
+            <animated.div key={key} style={props} className={s.listMenu}>
+              {listMenu}
+              <PlaceSearchTablet
+                stateToggleMenu={stateToggleMenu}
+                updateInputSearchText={props1.updateInputSearchText}
+                resetInputSearchText={props1.resetInputSearchText}
+                inputSearchText={props1.inputSearchText}
+              />
+            </animated.div>
+          )
       )}
     </div>
   );

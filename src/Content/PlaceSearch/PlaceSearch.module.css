@@ -1,8 +1,8 @@
-.placeForSearch:focus {
+.placeSearch:focus {
   outline: none;
 }
 @media (min-width: 1000px) {
-  .buttonForSearch {
+  .buttonSearch {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,10 +15,10 @@
     top: 0px;
     font-size: 30px;
   }
-  .buttonForSearch:hover {
+  .buttonSearch:hover {
     background-color: #6db33f;
   }
-  .placeForSearch {
+  .placeSearch {
     width: 90%;
     height: 70%;
     border-radius: 20px;
@@ -33,13 +33,12 @@
     position: absolute;
     background-color: hsl(0, 7%, 81%);
     border: none;
-    /* left: -448px; */
     left: -972px;
     top: 0px;
     width: 973px;
     height: 56px;
   }
-  .buttonForCancel {
+  .buttonCancel {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,31 +59,31 @@
     align-items: center;
     justify-content: center;
     height: 40px;
-    width: 270px;
-    margin: 10px;
+    width: 300px;
+    margin: 10px 0px;
     position: absolute;
     top: -55px;
     cursor: pointer;
   }
-  .buttonForSearch {
+  .buttonSearch {
     order: 3;
   }
-  .buttonForCancel {
+  .buttonCancel {
     order: 1;
   }
-  .buttonForCancel,
-  .buttonForSearch {
+  .buttonCancel,
+  .buttonSearch {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 23px;
-    height: 80%;
-    width: 15%;
+    height: 32px;
+    width: 32px;
     background-color: #555;
     color: #eee;
     border-radius: 4px;
   }
-  .placeForSearch {
+  .placeSearch {
     padding: 0 10px;
     height: 100%;
     background-color: #555;
@@ -93,7 +92,8 @@
   }
   form {
     text-align: center;
-    width: 100%;
+    width: 200px;
+    margin: 0px 10px;
     height: 80%;
     order: 2;
   }
