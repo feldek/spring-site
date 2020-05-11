@@ -1,0 +1,66 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: black;
+}
+.card:hover {
+  border: 1px solid black;
+}
+.nothingFound {
+  font-size: 60px;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 400px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+  .nothingFound {
+    position: absolute;
+    display: flex;
+    width: 1024px;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 350px;
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .nothingFound {
+    position: absolute;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 400px;
+    grid-row-gap: 20px;
+    margin: 0 auto;
+    min-width: 250px;
+    max-width: 350px;
+  }
+  .nothingFound {
+    position: relative;
+  }
+}

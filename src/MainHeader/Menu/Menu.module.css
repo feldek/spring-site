@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  position: relative;
+  top: 4px;
+  height: 70px;
+}
+.menu > a:hover {
+  background-color: #6db33f;
+}
+.menu > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #34302d;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+.menu > a:first-child {
+  display: none;
+}
+.menu > a:nth-child(2) {
+  background-color: #6db33f;
+}

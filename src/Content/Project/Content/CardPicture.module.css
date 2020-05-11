@@ -1,0 +1,21 @@
+.picture {
+  text-align: center;
+}
+@media (min-width: 1000px) {
+  .picture img {
+    height: 150px;
+    margin: 40px auto 40px auto;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px) {
+  .picture img {
+    height: 150px;
+    margin: 20px auto;
+  }
+}
+@media (max-width: 600px) {
+  .picture img {
+    height: 150px;
+    margin: 40px auto;
+  }
+}
