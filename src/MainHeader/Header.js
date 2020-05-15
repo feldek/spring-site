@@ -21,9 +21,11 @@ let Header = (props) => {
         render={() => (
           <MenuTablet
             menuList={menuList}
-            updateInputSearchText={props.updateInputSearchText}
-            resetInputSearchText={props.resetInputSearchText}
-            inputSearchText={props.inputSearchText}
+            state = {props.state}
+            dispatch={props.dispatch}
+            // updateInputSearchText={props.updateInputSearchText}
+            // resetInputSearchText={props.resetInputSearchText}
+            // inputSearchText={props.inputSearchText}
           />
         )}
       />
@@ -32,9 +34,11 @@ let Header = (props) => {
         render={() => (
           <Menu
             menuList={menuList}
-            updateInputSearchText={props.updateInputSearchText}
-            resetInputSearchText={props.resetInputSearchText}
-            inputSearchText={props.inputSearchText}
+            state = {props.state}
+            dispatch={props.dispatch}
+            // updateInputSearchText={props.updateInputSearchText}
+            // resetInputSearchText={props.resetInputSearchText}
+            // inputSearchText={props.inputSearchText}
           />
         )}
       />

@@ -54,7 +54,10 @@ let Cards = (props) => {
     });
   };
 
-  alreadyFilteredCards = filterCards(props.inputSearchText, cards);
+  // alreadyFilteredCards = filterCards(props.inputSearchText, cards);
+  let inputSearchText = props.state.content.inputSearchText;
+  alreadyFilteredCards = filterCards(inputSearchText, cards);
+  
 
   let renderCards =
     alreadyFilteredCards.length === 0 ? (
@@ -67,7 +70,7 @@ let Cards = (props) => {
             <TextCard
               head={card.head}
               description={card.description}
-              inputSearchText={props.inputSearchText}
+              inputSearchText={inputSearchText}
             />
           </a>
         );

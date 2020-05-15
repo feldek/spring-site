@@ -2,12 +2,17 @@ import React from "react";
 import s from "./PlaceSearch.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  updateInputSearchText,
+  resetInputSearchText,
+} from "../../Data/ContentReducer";
 
 let PlaceSearchTablet = (props) => {
   let onInputChange = (e) => {
     let text = e.target.value;
-    props.updateInputSearchText(text);
+    props.dispatch(updateInputSearchText(text));
   };
+  // debugger;
 
   return (
     <div className={s.search}>
@@ -21,19 +26,20 @@ let PlaceSearchTablet = (props) => {
       <button
         form="text-to-find"
         className={s.buttonCancel}
-        onClick={props.resetInputSearchText}
+        onClick={() => {
+          props.dispatch(resetInputSearchText());
+        }}
       >
         <FontAwesomeIcon icon={faTimes} />
       </button>
       <form>
         <input
           onChange={onInputChange}
-          value={props.inputSearchText}
+          value={props.state.content.inputSearchText}
           className={s.placeSearch}
           type="text"
           id="text-to-find"
           placeholder="Enter something to search"
-          autoFocus
         />
       </form>
     </div>

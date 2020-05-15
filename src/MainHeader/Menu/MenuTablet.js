@@ -37,9 +37,11 @@ let MenuTablet = (props1) => {
               {listMenu}
               <PlaceSearchTablet
                 stateToggleMenu={stateToggleMenu}
-                updateInputSearchText={props1.updateInputSearchText}
-                resetInputSearchText={props1.resetInputSearchText}
-                inputSearchText={props1.inputSearchText}
+                // updateInputSearchText={props1.updateInputSearchText}
+                state = {props1.state}
+                dispatch={props1.dispatch}
+                // resetInputSearchText={props1.resetInputSearchText}
+                // inputSearchText={props1.inputSearchText}
               />
             </animated.div>
           )

@@ -7,7 +7,8 @@ let ContainerContent = (props) => {
   return (
     <div className={s.containerСontent}>
       <ContainerHeading />
-      <Card inputSearchText={props.inputSearchText} />
+      {/* <Card inputSearchText={props.inputSearchText} /> */}
+      <Card state={props.state} />
     </div>
   );
 };

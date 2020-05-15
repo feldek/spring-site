@@ -19,9 +19,11 @@ let Menu = (props) => {
         query="(min-width: 1000px)"
         render={() => (
           <PlaceSearch
-            updateInputSearchText={props.updateInputSearchText}
-            resetInputSearchText={props.resetInputSearchText}
-            inputSearchText={props.inputSearchText}
+            state={props.state}
+            dispatch={props.dispatch}
+            // updateInputSearchText={props.updateInputSearchText}
+            // resetInputSearchText={props.resetInputSearchText}
+            // inputSearchText={props.inputSearchText}
           />
         )}
       />

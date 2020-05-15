@@ -3,11 +3,15 @@ import s from "./PlaceSearch.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, animated } from "react-spring";
+import {
+  updateInputSearchText,
+  resetInputSearchText,
+} from "../../Data/ContentReducer";
 
 let PlaceSearch = (props) => {
   let onInputChange = (e) => {
     let text = e.target.value;
-    props.updateInputSearchText(text);
+    props.dispatch(updateInputSearchText(text));
   };
 
   let [toggleInputSearch, setToggleInputSearch] = useState(false);
@@ -40,14 +44,16 @@ let PlaceSearch = (props) => {
         <button
           form="text-to-find"
           className={s.buttonCancel}
-          onClick={props.resetInputSearchText}
+          onClick={() => {
+            props.dispatch(resetInputSearchText());
+          }}
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <form>
           <input
             onChange={onInputChange}
-            value={props.inputSearchText}
+            value={props.state.content.inputSearchText}
             className={s.placeSearch}
             type="text"
             id="text-to-find"
