@@ -18,29 +18,11 @@ let Header = (props) => {
       <div className={s.menuLogoPc}></div>
       <Media
         query="(max-width: 1000px)"
-        render={() => (
-          <MenuTablet
-            menuList={menuList}
-            state = {props.state}
-            dispatch={props.dispatch}
-            // updateInputSearchText={props.updateInputSearchText}
-            // resetInputSearchText={props.resetInputSearchText}
-            // inputSearchText={props.inputSearchText}
-          />
-        )}
+        render={() => <MenuTablet menuList={menuList} />}
       />
       <Media
         query="(min-width: 1000px)"
-        render={() => (
-          <Menu
-            menuList={menuList}
-            state = {props.state}
-            dispatch={props.dispatch}
-            // updateInputSearchText={props.updateInputSearchText}
-            // resetInputSearchText={props.resetInputSearchText}
-            // inputSearchText={props.inputSearchText}
-          />
-        )}
+        render={() => <Menu menuList={menuList} />}
       />
     </header>
   );

@@ -47,8 +47,9 @@
   }
   .menuLogoPc:hover {
     background-position: 0 -47px;
-  }}
-  @media (max-width: 1000px){
+  }
+}
+@media (max-width: 1000px) {
   header {
     display: flex;
     justify-content: space-between;
@@ -64,4 +65,3 @@
     z-index: -1;
   }
 }
-
