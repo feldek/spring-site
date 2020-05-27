@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import PlaceSearchTablet from "../../Content/PlaceSearch/PlaceSearchTablet";
 import { animated, useTransition } from "react-spring";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleArmMenu } from "../../Data/ContentReducer";
 
@@ -21,9 +21,9 @@ let MenuTablet = (props1) => {
 
   let listMenu = props1.menuList.map((item) => {
     return (
-      <NavLink to="/project" key={item}>
+      <Link to="/" key={item}>
         {item}
-      </NavLink>
+      </Link>
     );
   });
 

@@ -2,14 +2,14 @@ import React from "react";
 import s from "./Menu.module.css";
 import Media from "react-media";
 import PlaceSearch from "../../Content/PlaceSearch/PlaceSearch";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 let Menu = (props) => {
   let listMenu = props.menuList.map((item) => {
     return (
-      <NavLink to="/project" key={item}>
+      <Link to="/" key={item}>
         {item}
-      </NavLink>
+      </Link>
     );
   });
 

@@ -24,3 +24,4 @@ yarn-error.log*
 
 src/data/OldStore.js
 src/data/OldReducer.js
+src/Content/ValidationPageOld.js

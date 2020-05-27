@@ -12,9 +12,7 @@ let initialState = {
 const ContentReducer = (state = initialState, action) => {
   switch (action.type) {
     case caseUpdateInputSearchText: {
-      let stateCopy = { ...state };
-      stateCopy.inputSearchText = action.newText;
-      return stateCopy;
+      return { ...state, inputSearchText: action.newText };
     }
     case caseResetInputSearchText: {
       let stateCopy = { ...state };
@@ -25,14 +23,10 @@ const ContentReducer = (state = initialState, action) => {
       return stateCopy;
     }
     case caseToggleArmLineSearch: {
-      let stateCopy = { ...state };
-      stateCopy.armLineSearch = !stateCopy.armLineSearch;
-      return stateCopy;
+      return { ...state, armLineSearch: !state.armLineSearch };
     }
     case caseToggleArmMenu: {
-      let stateCopy = { ...state };
-      stateCopy.armMenu = !stateCopy.armMenu;
-      return stateCopy;
+      return { ...state, armMenu: !state.armMenu };
     }
 
     default:

@@ -5,9 +5,7 @@ let initialState = { loginCheck: false };
 const ValidationReducer = (state = initialState, action) => {
   switch (action.type) {
     case caseSetValidation: {
-      let stateCopy = { ...state };
-      stateCopy.loginCheck = action.status;
-      return stateCopy;
+      return { ...state, loginCheck: action.status };
     }
     default:
       return state;
