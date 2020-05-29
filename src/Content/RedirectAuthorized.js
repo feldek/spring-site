@@ -2,12 +2,12 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function ProtectedRoute({ component: Component }) {
+function RedirectAuthorized({ component: Component }) {
   let loginCheck = useSelector((state) => state.validation.loginCheck);
   return (
     <Route
-      render={() => (loginCheck ? Component() : <Redirect to={"/login"} />)}
+      render={() => (loginCheck ? <Redirect to={"/"} /> : <Component />)}
     />
   );
 }
-export default ProtectedRoute;
+export default RedirectAuthorized;

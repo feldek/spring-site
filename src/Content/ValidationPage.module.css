@@ -38,6 +38,29 @@
 .buttonFormLogin {
   margin: 20px 0px;
 }
+.descriptionForm {
+  margin: 10px auto;
+}
+.spaceSignIn {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.spaceSignIn button {
+  width: 60%;
+  height: 100%;
+  border: 1px solid rgba(71, 67, 67, 0.301);
+}
+.spaceSignIn label {
+  font: 400 13.3333px Arial;
+  width: 40%;
+  background-color: #f1f1f1;
+  border: 1px solid rgba(71, 67, 67, 0.301);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-width: 600px) {
   .loginBox {
     padding: 50px 10px;

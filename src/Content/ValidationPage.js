@@ -1,77 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import s from "./ValidationPage.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setValidation } from "../Data/ValidationReducer";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import useLocalStorage from "local-storage-hook";
+import * as yup from "yup";
+
+const SignupSchema = yup.object().shape({
+  login: yup
+    .string()
+    .required("Required")
+    .test("Login", "This login not found", (e) => {
+      return e === "admin";
+    }),
+  password: yup
+    .string()
+    .required("Required")
+    .min(3, "Minimum 3 characters required")
+    .test("Password", "Invalid password", (e) => {
+      return e === "1234";
+    }),
+});
 
 const ValidationPage = () => {
-  const { handleSubmit, register, errors } = useForm();
-  const history = useHistory();
+  console.log();
+  const { handleSubmit, register, errors } = useForm({
+    validationSchema: SignupSchema,
+  });
   const dispatch = useDispatch();
-  const [invalidEnter, setInvalidEnter] = useState("");
-  const [styleLogin, setStyleLogin] = useState(s.login);
-  const [stylePassword, setStylePassword] = useState(s.password);
+  const [localDataUser, setLocalDataUser] = useLocalStorage("dataUser", false);
+
+  useEffect(() => {
+    if (localDataUser.loginCheck)
+      dispatch(setValidation(localDataUser.loginCheck));
+  });
 
   const checkLogin = (e) => {
-    setStylePassword(s.password);
-    setStyleLogin(s.login);
-    if (e.login === "admin") {
-      if (e.password === "1234") {
-        dispatch(setValidation(true));
-        history.replace("/");
-      } else {
-        setInvalidEnter("Invalid login or password");
-        setStylePassword(s.invalidPassword);
-        setStyleLogin(s.invalidLogin);
-      }
+    if (e.checkbox === true) {
+      dispatch(setValidation(true));
+      setLocalDataUser({
+        login: e.login,
+        password: e.password,
+        loginCheck: true,
+      });
     } else {
-      setInvalidEnter("Invalid login or password");
-      setStylePassword(s.invalidPassword);
-      setStyleLogin(s.invalidLogin);
+      dispatch(setValidation(true));
     }
   };
-
-  let loginCheck = useSelector((state) => state.validation.loginCheck);
 
   return (
     <div className={s.fullScreen}>
       <div className={s.loginBox}>
-        Enter login and password
+        <div className={s.descriptionForm}>Enter login and password</div>
         <form onSubmit={handleSubmit(checkLogin)} className={s.form}>
-          <input
-            className={styleLogin}
-            name="login"
-            ref={register({
-              required: "This field must be filled",
-              minLength: {
-                value: 3,
-                message: "Enter more than 2 characters",
-              },
-            })}
-          />
+          <input className={s.login} name="login" ref={register()} />
           <div className={s.textHelp}>
-            {invalidEnter}
             {errors.login && errors.login.message}
           </div>
 
           <input
-            className={stylePassword}
+            className={s.password}
             name="password"
             type="password"
-            ref={register({
-              required: "This field must be filled",
-              minLength: {
-                value: 3,
-                message: "Enter more than 2 characters",
-              },
-            })}
+            ref={register()}
           />
           <div className={s.textHelp}>
             {errors.password && errors.password.message}
           </div>
 
-          <button type="submit">Sign In</button>
+          <div className={s.spaceSignIn}>
+            <button type="submit">Sign In</button>
+            <label>
+              <div>Remember</div>
+              <input name="checkbox" type="checkbox" ref={register()} />
+            </label>
+          </div>
         </form>
       </div>
     </div>
