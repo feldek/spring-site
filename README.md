@@ -1,6 +1,7 @@
-authorization stub:
-login:    admin
-password: 1234
+authorization stub:<br />
+login:    admin<br />
+password: 1234<br />
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
