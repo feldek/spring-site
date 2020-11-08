@@ -2,8 +2,10 @@ import React from "react";
 import TextCard from "./TextCard";
 import CardPicture from "./CardPicture";
 import s from "./Cards.module.css";
+import { useSelector } from "react-redux";
 
 let Cards = (props) => {
+  let inputSearchText = useSelector((state) => state.content.inputSearchText);
   let cards = [
     {
       relativeUrlPicture: "storage/card_picture/spring_boot.svg",
@@ -42,7 +44,6 @@ let Cards = (props) => {
         "Supports the well-known Enterprise Integration Patterns via lightweight messagging and declarative adapters.",
     },
   ];
-  let alreadyFilteredCards;
 
   const filterCards = (searchText, cards) => {
     let regExpSearchText = new RegExp(`${searchText}`, "gi");
@@ -54,7 +55,7 @@ let Cards = (props) => {
     });
   };
 
-  alreadyFilteredCards = filterCards(props.inputSearchText, cards);
+  let alreadyFilteredCards = filterCards(inputSearchText, cards);
 
   let renderCards =
     alreadyFilteredCards.length === 0 ? (
@@ -62,12 +63,12 @@ let Cards = (props) => {
     ) : (
       alreadyFilteredCards.map((card) => {
         return (
-          <a href="/#" className={s.card} key={card.head}>
+          <a className={s.card} key={card.head}>
             <CardPicture relativeUrlPicture={card.relativeUrlPicture} />
             <TextCard
               head={card.head}
               description={card.description}
-              inputSearchText={props.inputSearchText}
+              inputSearchText={inputSearchText}
             />
           </a>
         );

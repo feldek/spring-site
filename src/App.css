@@ -1,17 +1,21 @@
 .App {
   text-align: center;
 }
+input {
+  outline: none;
+}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-button, a{  
+button,
+a {
   text-decoration: none;
   border: none;
   outline: none;
 }
-button:focus{
+button:focus {
   text-decoration: none;
   border: none;
 }

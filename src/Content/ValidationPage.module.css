@@ -1,0 +1,68 @@
+.fullScreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(54, 63, 54, 0.253);
+}
+.loginBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300;
+  margin: 10px;
+  width: 500px;
+  padding: 50px;
+  background-color: rgba(241, 241, 241, 0.637);
+  border-radius: 40px;
+  border-style: outset;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+}
+.invalidPassword,
+.invalidLogin {
+  outline: 2px solid red;
+  outline-offset: -1px;
+}
+.textHelp {
+  color: rgb(255, 37, 37);
+  font-size: 15px;
+  height: 20px;
+}
+.buttonFormLogin {
+  margin: 20px 0px;
+}
+.descriptionForm {
+  margin: 10px auto;
+}
+.spaceSignIn {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.spaceSignIn button {
+  width: 60%;
+  height: 100%;
+  border: 1px solid rgba(71, 67, 67, 0.301);
+}
+.spaceSignIn label {
+  font: 400 13.3333px Arial;
+  width: 40%;
+  background-color: #f1f1f1;
+  border: 1px solid rgba(71, 67, 67, 0.301);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  .loginBox {
+    padding: 50px 10px;
+  }
+}

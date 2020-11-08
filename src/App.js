@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import Header from "./MainHeader/Header";
-import ContainerContent from "./Content/Project/ContainerContent";
+import ValidationPage from "./Content/ValidationPage";
+import { Switch, Route } from "react-router-dom";
 
+import MainPage from "./MainPage";
+import ProtectedRoute from "./Content/ProtectedRoute";
+import PageNotFound from "./Content/PageNotFound";
+import RedirectAuthorized from "./Content/RedirectAuthorized";
 
 function App(props) {
-  let [inputSearchText, setInputSearchText] = useState("");
-  const updateInputSearchText = (text) => {
-    setInputSearchText(text);
-  };
-  const resetInputSearchText = () => {
-    setInputSearchText("");
-  };
-
   return (
-
-      <div>
-        <Header
-          updateInputSearchText={updateInputSearchText}
-          resetInputSearchText={resetInputSearchText}
-          inputSearchText={inputSearchText}
-        />
-        <ContainerContent
-          inputSearchText={inputSearchText}
-        />
-      </div>
-
+    <div>
+      <Switch>
+        <ProtectedRoute exact path={"/"} component={MainPage} />
+        <RedirectAuthorized exact path={"/login"} component={ValidationPage} />
+        <Route component={PageNotFound} />
+      </Switch>
+    </div>
   );
 }
 

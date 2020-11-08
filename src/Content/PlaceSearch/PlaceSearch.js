@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./PlaceSearch.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, animated } from "react-spring";
+import {
+  updateInputSearchText,
+  resetInputSearchText,
+  toggleArmLineSearch,
+} from "../../Data/ContentReducer";
+import { useSelector, useDispatch } from "react-redux";
 
 let PlaceSearch = (props) => {
+  const inputSearchText = useSelector((state) => state.content.inputSearchText);
+  const armLineSearch = useSelector((state) => state.content.armLineSearch);
+  const dispatch = useDispatch();
+
   let onInputChange = (e) => {
     let text = e.target.value;
-    props.updateInputSearchText(text);
-  };
-
-  let [toggleInputSearch, setToggleInputSearch] = useState(false);
-  const stateToggleInputSearch = () => {
-    setToggleInputSearch(!toggleInputSearch);
+    dispatch(updateInputSearchText(text));
   };
 
   const { x } = useSpring({
     from: { x: 0 },
-    x: toggleInputSearch ? 1 : 0,
+    x: armLineSearch ? 1 : 0,
     config: { duration: 500 },
   });
 
@@ -27,7 +32,9 @@ let PlaceSearch = (props) => {
         form="text-to-find"
         name="buttonSearch"
         className={s.buttonSearch}
-        onClick={stateToggleInputSearch}
+        onClick={() => {
+          dispatch(toggleArmLineSearch());
+        }}
       >
         <FontAwesomeIcon icon={faSearch} />
       </button>
@@ -40,14 +47,16 @@ let PlaceSearch = (props) => {
         <button
           form="text-to-find"
           className={s.buttonCancel}
-          onClick={props.resetInputSearchText}
+          onClick={() => {
+            dispatch(resetInputSearchText());
+          }}
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        <form>
+        <form className={s.form}>
           <input
             onChange={onInputChange}
-            value={props.inputSearchText}
+            value={inputSearchText}
             className={s.placeSearch}
             type="text"
             id="text-to-find"
